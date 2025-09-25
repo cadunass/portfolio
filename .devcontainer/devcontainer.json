@@ -13,6 +13,7 @@
 
             "extensions": [
                 "vadimcn.vscode-lldb",
+                "biomejs.biome",
                 "mutantdino.resourcemonitor",
                 "bradlc.vscode-tailwindcss",
                 "statelyai.stately-vscode",
