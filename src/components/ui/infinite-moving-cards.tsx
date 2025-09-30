@@ -24,7 +24,7 @@ export const InfiniteMovingCards = ({
   const containerRef = React.useRef<HTMLDivElement>(null);
   const scrollerRef = React.useRef<HTMLUListElement>(null);
   const [start, setStart] = useState(false);
-  
+
   const getDirection = useCallback(() => {
     if (containerRef.current) {
       if (direction === "left") {
@@ -95,7 +95,7 @@ export const InfiniteMovingCards = ({
             className="relative w-[100px] max-w-full shrink-0 rounded-2xl md:w-[200px]"
             key={item.name ?? item.quote}
           >
-            <div className="relative h-full rounded-2xl border p-2 md:rounded-3xl md:p-3">
+            <div className="relative h-24 rounded-2xl border p-2 md:rounded-3xl md:p-3">
               <GlowingEffect
                 blur={0}
                 borderWidth={2}
