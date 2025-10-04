@@ -1,0 +1,19 @@
+/**
+ * Site-wide configuration
+ * Update these values to match your portfolio
+ */
+
+export const siteConfig = {
+  name: "Portfolio",
+  url: "https://cadunass.com",
+  ogImage: "https://cadunass.com/og-image.jpg",
+  description: "Software Engineer Portfolio",
+  links: {
+    github: "https://github.com/cadunass",
+    linkedin: "https://www.linkedin.com/in/cadunass",
+  },
+};
+
+export type SiteConfig = typeof siteConfig;
+
+

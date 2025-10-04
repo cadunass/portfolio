@@ -1,19 +1,34 @@
-import Image from "next/image";
-import { Skills } from "@/components/sections/skills";
+import {
+  Hero,
+  About,
+  Skills,
+  Projects,
+  Experience,
+  // Contact,
+  SocialLinks,
+} from "@/components/sections";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { FloatingDockDemo } from "@/components/sections/socials";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+    <div className="min-h-screen">
+      {/* Theme Toggle - Fixed Position */}
+      <div className="fixed top-4 right-4 z-50">
         <ThemeToggle />
+      </div>
 
+      {/* Main Content */}
+      <main className="w-full">
+        <Hero />
+        <About />
         <Skills />
+        <Projects />
+        <Experience />
+        {/* <Contact /> */}
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <FloatingDockDemo />
-      </footer>
+
+      {/* Floating Social Links - Fixed Position */}
+      <SocialLinks />
     </div>
   );
 }
