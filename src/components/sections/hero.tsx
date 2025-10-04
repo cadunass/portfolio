@@ -1,6 +1,7 @@
 "use client";
 
 import { PERSONAL_INFO } from "@/constants";
+import { IconArrowUpRight } from "@tabler/icons-react";
 
 export function Hero() {
   return (
@@ -18,12 +19,15 @@ export function Hero() {
         <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto mb-12">
           {PERSONAL_INFO.bio}
         </p>
-        <div className="flex gap-4 justify-center">
+        <div className="flex flex-wrap gap-4 justify-center">
           <a
-            href="#contact"
-            className="px-6 py-3 bg-neutral-800 dark:bg-white text-white dark:text-neutral-800 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-6 py-3 bg-neutral-800 dark:bg-white text-white dark:text-neutral-800 rounded-lg font-semibold hover:opacity-90 transition-opacity"
           >
-            Get in Touch
+            Open Resume
+            <IconArrowUpRight size={20} />
           </a>
           <a
             href="#projects"
@@ -36,4 +40,3 @@ export function Hero() {
     </section>
   );
 }
-
