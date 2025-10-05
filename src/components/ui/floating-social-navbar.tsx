@@ -72,9 +72,41 @@ export const FloatingSocialNavbar = ({
             <button
               type="button"
               onClick={() => setIsOpen(!isOpen)}
-              className="group relative flex h-8 w-10 items-center justify-center rounded-b-xl bg-white/90 backdrop-blur-sm shadow-lg transition-all hover:h-10 hover:shadow-xl dark:bg-neutral-900/90 border-x border-b border-neutral-200 dark:border-neutral-700"
+              className="group relative flex h-8 w-10 items-center justify-center rounded-b-xl bg-white/90 backdrop-blur-sm shadow-lg transition-all hover:h-10 hover:shadow-xl dark:bg-neutral-900/90 border-x border-b border-neutral-200 dark:border-neutral-700 overflow-hidden"
               aria-label={isOpen ? "Hide social links" : "Show social links"}
             >
+              {/* Animated gradient background */}
+              <motion.div
+                className="absolute inset-0 opacity-30"
+                animate={{
+                  background: [
+                    "linear-gradient(45deg, rgba(139, 92, 246, 0.3), rgba(59, 130, 246, 0.3), rgba(139, 92, 246, 0.3))",
+                    "linear-gradient(90deg, rgba(59, 130, 246, 0.3), rgba(236, 72, 153, 0.3), rgba(59, 130, 246, 0.3))",
+                    "linear-gradient(135deg, rgba(236, 72, 153, 0.3), rgba(139, 92, 246, 0.3), rgba(236, 72, 153, 0.3))",
+                    "linear-gradient(180deg, rgba(139, 92, 246, 0.3), rgba(59, 130, 246, 0.3), rgba(139, 92, 246, 0.3))",
+                  ],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  ease: "easeInOut",
+                }}
+              />
+
+              {/* Shimmer effect */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 dark:via-white/10 to-transparent"
+                animate={{
+                  x: ["-200%", "200%"],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+              />
+
               <AnimatePresence mode="wait" initial={false}>
                 {isOpen ? (
                   <motion.div
@@ -83,6 +115,7 @@ export const FloatingSocialNavbar = ({
                     animate={{ opacity: 1, rotate: 0 }}
                     exit={{ opacity: 0, rotate: -180 }}
                     transition={{ duration: 0.2 }}
+                    className="relative z-10"
                   >
                     <IconX className="h-4 w-4 text-neutral-600 dark:text-neutral-300" />
                   </motion.div>
@@ -93,6 +126,7 @@ export const FloatingSocialNavbar = ({
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.2 }}
+                    className="relative z-10"
                   >
                     <IconChevronDown className="h-4 w-4 text-neutral-600 dark:text-neutral-300 group-hover:translate-y-0.5 transition-transform" />
                   </motion.div>
