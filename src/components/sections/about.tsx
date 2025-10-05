@@ -12,13 +12,20 @@ export function About() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-4">
             <p className="text-neutral-600 dark:text-neutral-300 leading-relaxed">
-              {PERSONAL_INFO.bio}
+              Security-conscious and performance-driven Software Engineer with
+              over 6 years of experience in full-stack web development,
+              specializing in the design, development, and optimization of
+              secure, scalable systems across the entire software development
+              lifecycle.
             </p>
             <p className="text-neutral-600 dark:text-neutral-300 leading-relaxed">
-              I specialize in building scalable web applications with modern
-              technologies, with a strong focus on user experience and code
-              quality. My passion lies in solving complex problems and learning
-              new technologies.
+              I have the ability to architect robust solutions, manage projects
+              from start to production, implement comprehensive security best
+              practices, and lead the development of complex applications. My
+              expertise spans frontend and backend development (including Rust,
+              TypeScript, Next.js, React), API development, software security
+              principles, repository management, and CI/CD pipeline
+              implementation.
             </p>
             <div className="pt-4">
               {PERSONAL_INFO.location && (
@@ -51,4 +58,3 @@ export function About() {
     </section>
   );
 }
-

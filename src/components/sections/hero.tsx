@@ -2,14 +2,16 @@
 
 import { PERSONAL_INFO } from "@/constants";
 import { IconArrowUpRight } from "@tabler/icons-react";
+import { Spotlight } from "../ui/spotlight-new";
 
 export function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden antialiased"
     >
-      <div className="max-w-4xl mx-auto text-center px-4">
+      <Spotlight />
+      <div className="max-w-4xl mx-auto text-center px-4 relative">
         <h1 className="text-5xl md:text-7xl font-bold text-neutral-800 dark:text-white mb-6 animate-fade-in">
           {PERSONAL_INFO.name}
         </h1>
