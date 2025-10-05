@@ -1,7 +1,7 @@
 "use client";
 
-import { PERSONAL_INFO } from "@/constants";
 import { IconMail, IconMapPin } from "@tabler/icons-react";
+import { PERSONAL_INFO } from "@/constants";
 
 export function Contact() {
   return (

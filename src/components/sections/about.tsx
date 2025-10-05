@@ -1,15 +1,27 @@
 "use client";
 
+import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 import { PERSONAL_INFO } from "@/constants";
+import { useInView } from "@/hooks/use-in-view";
 
 export function About() {
+  const { ref, isInView } = useInView();
+
+  const words = [
+    { text: "About", className: "text-neutral-800 dark:text-white" },
+    { text: "Me", className: "text-neutral-800 dark:text-white" },
+  ];
+
   return (
-    <section id="about" className="py-20 px-4">
+    <section id="about" className="py-20 px-4" ref={ref}>
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl font-bold text-neutral-800 dark:text-white mb-8 text-center">
-          About Me
-        </h2>
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="text-4xl font-bold mb-8 text-center">
+          {isInView && <TypewriterEffect words={words} />}
+        </div>
+        <div
+          className={`grid md:grid-cols-2 gap-12 items-center transition-all duration-700 ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+          style={{ transitionDelay: "0.3s" }}
+        >
           <div className="space-y-4">
             <p className="text-neutral-600 dark:text-neutral-300 leading-relaxed">
               Security-conscious and performance-driven Software Engineer with
@@ -27,7 +39,7 @@ export function About() {
               principles, repository management, and CI/CD pipeline
               implementation.
             </p>
-            <div className="pt-4">
+            {/* <div className="pt-4">
               {PERSONAL_INFO.location && (
                 <p className="text-neutral-600 dark:text-neutral-400">
                   <span className="font-semibold">Location:</span>{" "}
@@ -45,7 +57,7 @@ export function About() {
                   </a>
                 </p>
               )}
-            </div>
+            </div> */}
           </div>
           <div className="flex justify-center">
             <div className="w-64 h-64 rounded-full bg-gradient-to-br from-neutral-200 to-neutral-400 dark:from-neutral-700 dark:to-neutral-900 flex items-center justify-center">

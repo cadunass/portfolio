@@ -210,7 +210,7 @@ Update metadata and site config in `src/config/site.ts` and `src/app/layout.tsx`
 - **Framework**: [Next.js 15](https://nextjs.org/)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
 - **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
-- **UI Components**: [Radix UI](https://www.radix-ui.com/)
+- **UI Components**: [Aceternity UI](https://ui.aceternity.com) && [Radix UI](https://www.radix-ui.com/)
 - **Icons**: [Tabler Icons](https://tabler-icons.io/)
 - **Animations**: [Motion (Framer Motion)](https://motion.dev/)
 - **Theme**: [next-themes](https://github.com/pacocoursey/next-themes)

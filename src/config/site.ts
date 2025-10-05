@@ -4,8 +4,9 @@
  */
 
 export const siteConfig = {
-  name: "Portfolio",
+  name: "cadunass",
   url: "https://cadunass.com",
+  repo: "https://github.com/cadunass/portfolio",
   ogImage: "https://cadunass.com/og-image.jpg",
   description: "Software Engineer Portfolio",
   links: {
@@ -15,5 +16,3 @@ export const siteConfig = {
 };
 
 export type SiteConfig = typeof siteConfig;
-
-

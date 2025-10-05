@@ -1,20 +1,26 @@
 "use client";
 
-import { PROJECTS } from "@/constants";
 import { IconBrandGithub, IconExternalLink } from "@tabler/icons-react";
 import Image from "next/image";
+import { TypewriterEffect } from "@/components/ui/typewriter-effect";
+import { PROJECTS } from "@/constants";
+import { useInView } from "@/hooks/use-in-view";
 
 export function Projects() {
+  const { ref, isInView } = useInView();
+
+  const words = [
+    { text: "Featured", className: "text-neutral-800 dark:text-white" },
+    { text: "Projects", className: "text-neutral-800 dark:text-white" },
+  ];
+
   if (PROJECTS.length === 0) {
     return (
-      <section
-        id="projects"
-        className="py-20 px-4 bg-neutral-50 dark:bg-neutral-900/50"
-      >
+      <section id="projects" ref={ref} className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-neutral-800 dark:text-white mb-12 text-center">
-            Featured Projects
-          </h2>
+          <div className="text-4xl font-bold mb-12 text-center">
+            {isInView && <TypewriterEffect words={words} />}
+          </div>
           <div className="text-center text-neutral-600 dark:text-neutral-400">
             <p>Projects coming soon! Check back later to see my work.</p>
             <p className="mt-2 text-sm">
@@ -32,13 +38,17 @@ export function Projects() {
   return (
     <section
       id="projects"
+      ref={ref}
       className="py-20 px-4 bg-neutral-50 dark:bg-neutral-900/50"
     >
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-neutral-800 dark:text-white mb-12 text-center">
-          Featured Projects
-        </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="text-4xl font-bold mb-12 text-center">
+          {isInView && <TypewriterEffect words={words} />}
+        </div>
+        <div
+          className={`grid md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-700 ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+          style={{ transitionDelay: "0.3s" }}
+        >
           {PROJECTS.map((project) => (
             <div
               key={project.id}

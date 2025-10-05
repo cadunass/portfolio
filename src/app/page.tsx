@@ -1,9 +1,10 @@
 import {
-  Hero,
   About,
-  Skills,
-  Projects,
+  // Projects,
   Experience,
+  Footer,
+  Hero,
+  Skills,
   // Contact,
   SocialLinks,
 } from "@/components/sections";
@@ -21,22 +22,23 @@ export default function Home() {
       </div>
 
       {/* Theme Toggle - Fixed Position */}
-      <div className="fixed top-4 right-4 z-50">
+      {/* <div className="fixed top-4 right-4 z-50">
         <ThemeToggle />
-      </div>
+      </div> */}
 
       {/* Main Content */}
       <main className="relative z-10 w-full">
         <Hero />
         <About />
         <Skills />
-        <Projects />
+        {/* <Projects /> */}
         <Experience />
         {/* <Contact /> */}
       </main>
 
       {/* Floating Social Links - Fixed Position */}
       <SocialLinks />
+      <Footer />
     </div>
   );
 }

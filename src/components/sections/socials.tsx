@@ -1,4 +1,3 @@
-import { FloatingDock } from "@/components/ui/floating-dock";
 import {
   IconBrandGithub,
   IconBrandLinkedin,
@@ -6,6 +5,7 @@ import {
   IconMail,
 } from "@tabler/icons-react";
 import { SOCIAL_LINKS } from "@/constants";
+import { FloatingSocialNavbar } from "../ui/floating-social-navbar";
 
 export function SocialLinks() {
   // Map icon names to actual icon components
@@ -27,9 +27,5 @@ export function SocialLinks() {
     };
   });
 
-  return (
-    <div className="flex items-center justify-center w-full fixed bottom-4 right-4">
-      <FloatingDock items={links} />
-    </div>
-  );
+  return <FloatingSocialNavbar items={links} />;
 }

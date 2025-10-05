@@ -1,4 +1,4 @@
-import type { Project } from '@/types';
+import type { Project } from "@/types";
 
 export const PROJECTS: Project[] = [
   // Add your projects here
@@ -13,5 +13,3 @@ export const PROJECTS: Project[] = [
   //   featured: true,
   // },
 ];
-
-

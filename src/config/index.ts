@@ -1,4 +1,2 @@
 // Central export for configuration
-export * from './site';
-
-
+export * from "./site";

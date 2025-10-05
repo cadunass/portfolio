@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Caveat, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 
@@ -13,8 +13,14 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const caveat = Caveat({
+  variable: "--font-caveat",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = {
-  title: "Portfolio | Software Engineer",
+  title: "cadunass | Software Engineer",
   description:
     "Software Engineer specializing in modern web technologies, blockchain, and AI. Explore my projects and experience.",
   keywords: [
@@ -33,10 +39,10 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://cadunass.com",
-    title: "Portfolio | Software Engineer",
+    title: "cadunass | Software Engineer",
     description:
       "Software Engineer specializing in modern web technologies, blockchain, and AI.",
-    siteName: "Portfolio",
+    siteName: "cadunass",
   },
 };
 
@@ -48,11 +54,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${caveat.variable} antialiased`}
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >

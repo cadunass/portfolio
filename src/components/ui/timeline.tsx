@@ -1,7 +1,7 @@
 "use client";
-import { useScroll, useTransform, motion } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
 import type React from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface TimelineEntry {
   title: string;
@@ -12,9 +12,15 @@ interface TimelineProps {
   data: TimelineEntry[];
   title?: string;
   description?: string;
+  titleComponent?: React.ReactNode;
 }
 
-export const Timeline = ({ data, title, description }: TimelineProps) => {
+export const Timeline = ({
+  data,
+  title,
+  description,
+  titleComponent,
+}: TimelineProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
@@ -35,17 +41,15 @@ export const Timeline = ({ data, title, description }: TimelineProps) => {
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   return (
-    <div
-      className="w-full bg-white dark:bg-neutral-950 font-sans md:px-10"
-      ref={containerRef}
-    >
-      {(title || description) && (
-        <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
-          {title && (
-            <h2 className="text-lg md:text-4xl mb-4 text-black dark:text-white max-w-4xl">
-              {title}
-            </h2>
-          )}
+    <div className="w-full font-sans md:px-10" ref={containerRef}>
+      {(title || description || titleComponent) && (
+        <div className="max-w-7xl mx-auto py-10 px-4 md:px-8 lg:px-10">
+          {titleComponent ||
+            (title && (
+              <h2 className="text-lg md:text-4xl mb-4 text-black dark:text-white max-w-4xl">
+                {title}
+              </h2>
+            ))}
           {description && (
             <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm">
               {description}
@@ -58,7 +62,7 @@ export const Timeline = ({ data, title, description }: TimelineProps) => {
         {data.map((item) => (
           <div
             key={item.title}
-            className="flex justify-start pt-10 md:pt-40 md:gap-10"
+            className="flex justify-start pt-10 md:pt-20 md:gap-10"
           >
             <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
               <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-white dark:bg-black flex items-center justify-center">

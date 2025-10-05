@@ -3,7 +3,7 @@
 export interface Skill {
   name: string;
   category?: string;
-  proficiency?: 'beginner' | 'intermediate' | 'advanced' | 'expert';
+  proficiency?: "beginner" | "intermediate" | "advanced" | "expert";
 }
 
 export interface SocialLink {
@@ -29,18 +29,19 @@ export interface Experience {
   company: string;
   location?: string;
   startDate: string;
-  endDate?: string | 'Present';
-  description: string[];
+  endDate?: string | "Present";
+  summary: string;
   technologies?: string[];
+  links?: { label: string; url: string }[];
 }
 
 export interface PersonalInfo {
-  name: string;
+  username: string;
+  fullName: string[];
   title: string;
-  bio: string;
+  bioStart: string;
+  bioEnd: string;
   email?: string;
   location?: string;
   avatar?: string;
 }
-
-

@@ -6,25 +6,23 @@ import { PERSONAL_INFO } from "./personal-info";
 
 export const SOCIAL_LINKS = [
   {
-    title: 'Home',
-    href: '#home',
-    iconName: 'IconHome' as const,
+    title: "Home",
+    href: "",
+    iconName: "IconHome" as const,
   },
   {
-    title: 'Email',
+    title: "Email",
     href: `mailto:${PERSONAL_INFO.email}`,
-    iconName: 'IconMail' as const,
+    iconName: "IconMail" as const,
   },
   {
-    title: 'LinkedIn',
+    title: "LinkedIn",
     href: siteConfig.links.linkedin,
-    iconName: 'IconBrandLinkedin' as const,
+    iconName: "IconBrandLinkedin" as const,
   },
   {
-    title: 'GitHub',
+    title: "GitHub",
     href: siteConfig.links.github,
-    iconName: 'IconBrandGithub' as const,
+    iconName: "IconBrandGithub" as const,
   },
 ] as const;
-
-
