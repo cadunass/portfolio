@@ -13,11 +13,16 @@ export function About() {
   ];
 
   return (
-    <section id="about" className="py-20 px-4" ref={ref}>
+    <section
+      id="about"
+      className="py-20 px-4"
+      ref={ref}
+      aria-labelledby="about-heading"
+    >
       <div className="max-w-4xl mx-auto">
-        <div className="text-4xl font-bold mb-8 text-center">
+        <h2 id="about-heading" className="text-4xl font-bold mb-8 text-center">
           {isInView && <TypewriterEffect words={words} />}
-        </div>
+        </h2>
         <div
           className={`grid md:grid-cols-2 gap-12 items-center transition-all duration-700 ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
           style={{ transitionDelay: "0.3s" }}

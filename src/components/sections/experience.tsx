@@ -15,14 +15,14 @@ export function Experience() {
   ];
 
   const titleComponent = (
-    <div className="text-lg md:text-4xl font-bold">
+    <h2 className="text-lg md:text-4xl font-bold">
       {isInView && <TypewriterEffect words={words} />}
-    </div>
+    </h2>
   );
 
   if (EXPERIENCE.length === 0) {
     return (
-      <section id="experience" className="py-10 px-4">
+      <section id="experience" className="py-20 px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-neutral-800 dark:text-white mb-12 text-center">
             Work Experience
@@ -115,6 +115,7 @@ export function Experience() {
       id="experience"
       className="relative w-full overflow-clip"
       ref={ref}
+      aria-labelledby="experience-heading"
     >
       <Timeline
         data={timelineData}

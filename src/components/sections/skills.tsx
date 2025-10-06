@@ -19,11 +19,12 @@ export function Skills() {
       id="skills"
       ref={ref}
       className="h-[40rem] rounded-md flex flex-col antialiased dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden"
+      aria-labelledby="skills-heading"
     >
       <div className="mb-8">
-        <div className="text-3xl font-bold text-center mb-4">
+        <h2 id="skills-heading" className="text-3xl font-bold text-center mb-4">
           {isInView && <TypewriterEffect words={words} />}
-        </div>
+        </h2>
       </div>
       <div
         className={`relative transition-all duration-700 ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}

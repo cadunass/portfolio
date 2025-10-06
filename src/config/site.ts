@@ -7,7 +7,7 @@ export const siteConfig = {
   name: "cadunass",
   url: "https://cadunass.com",
   repo: "https://github.com/cadunass/portfolio",
-  ogImage: "https://cadunass.com/og-image.jpg",
+  ogImage: "https://cadunass.com/og-image.png",
   description: "Software Engineer Portfolio",
   links: {
     github: "https://github.com/cadunass",

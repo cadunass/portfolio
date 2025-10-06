@@ -19,16 +19,17 @@ export function Hero() {
     <section
       id="home"
       className="min-h-screen flex items-center justify-center relative overflow-hidden antialiased"
+      aria-label="Hero section"
     >
       <Spotlight />
       <div className="max-w-4xl mx-auto text-center px-4 relative">
-        <div className="text-5xl md:text-7xl font-bold mb-6 relative">
+        <h1 className="text-5xl md:text-7xl font-bold mb-6 relative">
           {/* <NameAnnotation /> */}
           <TypewriterEffect words={nameWords} />
-        </div>
-        <h2 className="text-2xl md:text-3xl text-neutral-600 dark:text-neutral-300 mb-8 opacity-0 animate-[fadeIn_0.5s_ease-in_0.5s_forwards]">
+        </h1>
+        <p className="text-2xl md:text-3xl text-neutral-600 dark:text-neutral-300 mb-8 opacity-0 animate-[fadeIn_0.5s_ease-in_0.5s_forwards]">
           {PERSONAL_INFO.title}
-        </h2>
+        </p>
         <div className="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto mb-12 opacity-0 animate-[fadeIn_0.5s_ease-in_1s_forwards]">
           {PERSONAL_INFO.bioStart}
           <FlipWords words={bioWords} />

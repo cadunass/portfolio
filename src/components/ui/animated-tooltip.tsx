@@ -7,6 +7,7 @@ import {
   useSpring,
   useTransform,
 } from "motion/react";
+import Image from "next/image";
 import React, { useRef, useState } from "react";
 
 export const AnimatedTooltip = ({
@@ -47,6 +48,7 @@ export const AnimatedTooltip = ({
   return (
     <>
       {items.map((item, idx) => (
+        // biome-ignore lint/a11y/noStaticElementInteractions: Wrapper for tooltip hover detection
         <div
           className="group relative -mr-4"
           key={item.name}
@@ -84,7 +86,7 @@ export const AnimatedTooltip = ({
               </motion.div>
             )}
           </AnimatePresence>
-          <img
+          <Image
             onMouseMove={handleMouseMove}
             height={100}
             width={100}

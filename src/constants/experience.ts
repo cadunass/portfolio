@@ -19,10 +19,13 @@ export const EXPERIENCE: Experience[] = [
       "CI/CD",
       "Blockchain",
     ],
-    links: [{ label: "bealore", url: "https://bealore.com" }, {
-      label: "joori",
-      url: "https://joori.ai",
-    }],
+    links: [
+      { label: "bealore", url: "https://bealore.com" },
+      {
+        label: "joori",
+        url: "https://joori.ai",
+      },
+    ],
   },
   {
     id: "taric-full-stack",
