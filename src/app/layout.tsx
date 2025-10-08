@@ -2,12 +2,12 @@ import type { Metadata, Viewport } from "next";
 import { Caveat, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { siteConfig } from "@/config";
 import {
   personStructuredData,
   seoConfig,
   websiteStructuredData,
 } from "@/config/seo";
-import { siteConfig } from "@/config";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

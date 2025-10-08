@@ -67,6 +67,7 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
     ],
   );
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: we need to update the stars when the canvas is resized
   useEffect(() => {
     const updateStars = () => {
       if (canvasRef.current) {

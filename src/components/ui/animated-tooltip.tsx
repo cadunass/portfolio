@@ -8,7 +8,7 @@ import {
   useTransform,
 } from "motion/react";
 import Image from "next/image";
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 export const AnimatedTooltip = ({
   items,
@@ -47,7 +47,7 @@ export const AnimatedTooltip = ({
 
   return (
     <>
-      {items.map((item, idx) => (
+      {items.map((item, _idx) => (
         // biome-ignore lint/a11y/noStaticElementInteractions: Wrapper for tooltip hover detection
         <div
           className="group relative -mr-4"

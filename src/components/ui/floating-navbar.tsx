@@ -5,7 +5,7 @@ import {
   useMotionValueEvent,
   useScroll,
 } from "motion/react";
-import React, { type JSX, useState } from "react";
+import { type JSX, useState } from "react";
 import { cn } from "@/lib/utils";
 
 export const FloatingNav = ({

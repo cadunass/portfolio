@@ -1,7 +1,6 @@
 "use client";
 
 import { TypewriterEffect } from "@/components/ui/typewriter-effect";
-import { PERSONAL_INFO } from "@/constants";
 import { useInView } from "@/hooks/use-in-view";
 
 export function About() {
