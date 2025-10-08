@@ -454,15 +454,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - 💼 LinkedIn: [Carlos Eduardo Nass](https://www.linkedin.com/in/cadunass/)
 - 🐙 GitHub: [@cadunass](https://github.com/cadunass)
 
----
-
-<p align="center">
-  Made with ❤️ by <a href="https://cadunass.com">cadunass</a>
-</p>
-
-<p align="center">
-  <a href="#-portfolio-website">Back to Top ↑</a>
-</p>
-
-
-

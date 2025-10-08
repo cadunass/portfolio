@@ -58,7 +58,7 @@ jobs:
         uses: treosh/lighthouse-ci-action@v12
         with:
           configPath: './.lighthouserc.json'
-          uploadArtifacts: true
+          uploadArtifacts: false
           temporaryPublicStorage: true
 
   lighthouse-mobile:
@@ -88,5 +88,5 @@ jobs:
         uses: treosh/lighthouse-ci-action@v12
         with:
           configPath: './.lighthouserc-mobile.json'
-          uploadArtifacts: true
+          uploadArtifacts: false
           temporaryPublicStorage: true
