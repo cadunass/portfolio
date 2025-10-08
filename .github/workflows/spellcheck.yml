@@ -3,8 +3,28 @@ name: Spellcheck
 on:
   push:
     branches: [main]
+    paths:
+      - '**.ts'
+      - '**.tsx'
+      - '**.md'
+      - '**.json'
+      - 'cspell.json'
+      - '.github/workflows/spellcheck.yml'
   pull_request:
     branches: [main]
+    paths:
+      - '**.ts'
+      - '**.tsx'
+      - '**.md'
+      - '**.json'
+      - 'cspell.json'
+      - '.github/workflows/spellcheck.yml'
+  workflow_dispatch:
+
+# Cancel in-progress runs for same PR/branch
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   spellcheck:

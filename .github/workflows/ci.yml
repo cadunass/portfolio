@@ -3,8 +3,32 @@ name: CI
 on:
   push:
     branches: [main]
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'tsconfig.json'
+      - 'next.config.ts'
+      - 'biome.json'
+      - '.github/workflows/ci.yml'
   pull_request:
     branches: [main]
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'tsconfig.json'
+      - 'next.config.ts'
+      - 'biome.json'
+      - '.github/workflows/ci.yml'
+  workflow_dispatch:
+
+# Cancel in-progress runs for same PR/branch
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build-and-lint:
@@ -39,8 +63,9 @@ jobs:
       - name: Check for build artifacts
         run: |
           if [ ! -d "out" ]; then
-            echo "Build output directory 'out' not found!"
+            echo "❌ Build output directory 'out' not found!"
             exit 1
           fi
-          echo "✓ Build successful - static files generated"
-
+          echo "✅ Build successful - static files generated in /out"
+          echo "📊 Files: $(find out -type f | wc -l)"
+          echo "💾 Size: $(du -sh out | cut -f1)"

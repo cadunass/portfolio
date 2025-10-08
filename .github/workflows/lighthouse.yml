@@ -3,13 +3,40 @@ name: Lighthouse CI
 on:
   push:
     branches: [main]
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'next.config.ts'
+      - '.lighthouserc.json'
+      - '.github/workflows/lighthouse.yml'
   pull_request:
     branches: [main]
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'next.config.ts'
+      - '.lighthouserc.json'
+      - '.github/workflows/lighthouse.yml'
+  workflow_dispatch:
+
+# Cancel in-progress runs for same PR/branch
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   lighthouse:
-    name: Lighthouse Audit
+    name: Lighthouse Audit (${{ matrix.device }})
     runs-on: ubuntu-latest
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        device: [desktop, mobile]
 
     steps:
       - name: Checkout code
@@ -30,9 +57,18 @@ jobs:
       - name: Build static site
         run: pnpm build
 
-      - name: Run Lighthouse CI
+      - name: Run Lighthouse CI (Desktop)
+        if: matrix.device == 'desktop'
         uses: treosh/lighthouse-ci-action@v12
         with:
           configPath: './.lighthouserc.json'
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+
+      - name: Run Lighthouse CI (Mobile)
+        if: matrix.device == 'mobile'
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          configPath: './.lighthouserc-mobile.json'
           uploadArtifacts: true
           temporaryPublicStorage: true
