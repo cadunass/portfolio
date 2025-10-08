@@ -333,9 +333,9 @@ This project uses automated workflows to ensure code quality and performance:
 
 #### 🔤 Spellcheck
 - **Triggers**: Push to `main` and Pull Requests
-- **Tool**: [Typos](https://github.com/crate-ci/typos) - Fast spell checker
+- **Tool**: cspell
 - **Scope**: Source code, markdown files, documentation
-- **Configuration**: `.typos.toml`
+- **Configuration**: `cspell.json`
 
 #### 💡 Lighthouse CI
 - **Triggers**: Push to `main` and Pull Requests

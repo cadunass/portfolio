@@ -8,16 +8,24 @@ on:
 
 jobs:
   spellcheck:
-    name: Check Spelling
+    name: Check Spelling (CSpell)
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Check spelling
-        uses: crate-ci/typos@v1.27.3
-        with:
-          files: .
-          config: .typos.toml
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run CSpell
+        run: pnpm spellcheck

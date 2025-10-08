@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "biome check",
     "format": "biome format --write",
+    "spellcheck": "cspell '**/*.{ts,tsx,md,json}'",
     "prepare": "husky"
   },
   "author": "cadunass",
@@ -51,6 +52,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "cspell": "^9.2.1",
     "husky": "^9.1.7",
     "lint-staged": "^15.2.11",
     "shadcn": "^3.3.1",
