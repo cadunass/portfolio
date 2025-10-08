@@ -4,12 +4,7 @@
       "staticDistDir": "./out",
       "numberOfRuns": 3,
       "settings": {
-        "preset": "desktop",
-        "throttling": {
-          "rttMs": 40,
-          "throughputKbps": 10240,
-          "cpuSlowdownMultiplier": 1
-        }
+        "preset": "desktop"
       }
     },
     "assert": {

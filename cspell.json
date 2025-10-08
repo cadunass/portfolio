@@ -63,8 +63,5 @@
     "package-lock.json",
     "*.log"
   ],
-  "ignoreRegExpList": [
-    "/https?:\\/\\/[^\\s]+/g",
-    "/#[0-9a-fA-F]{3,8}/g"
-  ]
+  "ignoreRegExpList": ["/https?:\\/\\/[^\\s]+/g", "/#[0-9a-fA-F]{3,8}/g"]
 }
