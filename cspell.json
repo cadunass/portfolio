@@ -51,7 +51,11 @@
     "changefreq",
     "Crawlable",
     "yourword",
-    "techterm"
+    "techterm",
+    "Kbps",
+    "Mbps",
+    "lhci",
+    "autorun"
   ],
   "ignorePaths": [
     "node_modules",

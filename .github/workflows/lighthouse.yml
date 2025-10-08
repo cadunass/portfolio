@@ -10,6 +10,7 @@ on:
       - 'pnpm-lock.yaml'
       - 'next.config.ts'
       - '.lighthouserc.json'
+      - '.lighthouserc-mobile.json'
       - '.github/workflows/lighthouse.yml'
   pull_request:
     branches: [main]
@@ -20,6 +21,7 @@ on:
       - 'pnpm-lock.yaml'
       - 'next.config.ts'
       - '.lighthouserc.json'
+      - '.lighthouserc-mobile.json'
       - '.github/workflows/lighthouse.yml'
   workflow_dispatch:
 
@@ -29,14 +31,9 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  lighthouse:
-    name: Lighthouse Audit (${{ matrix.device }})
+  lighthouse-desktop:
+    name: Lighthouse Audit (Desktop)
     runs-on: ubuntu-latest
-    
-    strategy:
-      fail-fast: false
-      matrix:
-        device: [desktop, mobile]
 
     steps:
       - name: Checkout code
@@ -58,15 +55,36 @@ jobs:
         run: pnpm build
 
       - name: Run Lighthouse CI (Desktop)
-        if: matrix.device == 'desktop'
         uses: treosh/lighthouse-ci-action@v12
         with:
           configPath: './.lighthouserc.json'
           uploadArtifacts: true
           temporaryPublicStorage: true
 
+  lighthouse-mobile:
+    name: Lighthouse Audit (Mobile)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build static site
+        run: pnpm build
+
       - name: Run Lighthouse CI (Mobile)
-        if: matrix.device == 'mobile'
         uses: treosh/lighthouse-ci-action@v12
         with:
           configPath: './.lighthouserc-mobile.json'
