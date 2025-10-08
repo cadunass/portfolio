@@ -7,6 +7,10 @@ extend-ignore-re = [
   "https?://[^\\s]+",
   # Ignore hex colors
   "#[0-9a-fA-F]{3,8}",
+  # Ignore Google verification tokens and other hashes
+  "[a-zA-Z0-9]{40,}",
+  # Ignore base64-like strings
+  "[A-Za-z0-9+/=]{20,}",
 ]
 
 [files]
@@ -18,25 +22,40 @@ extend-exclude = [
   "build",
   "*.lock",
   "*.log",
+  "*.pdf",
+  "*.woff",
+  "*.woff2",
+  "*.ttf",
+  "*.eot",
+  "*.otf",
   "pnpm-lock.yaml",
   "package-lock.json",
 ]
 
 [default.extend-words]
-# Add custom words that should be ignored
+# Personal/Project names
 cadunass = "cadunass"
 Nass = "Nass"
+
+# UI Libraries & Frameworks
 shadcn = "shadcn"
 Aceternity = "Aceternity"
-biomejs = "biomejs"
+radix = "radix"
 lucide = "lucide"
 tabler = "tabler"
-radix = "radix"
-turbopack = "Turbopack"
-devcontainer = "devcontainer"
+
+# Build tools & Dev tools
+Turbopack = "Turbopack"
+turbopack = "turbopack"
+biomejs = "biomejs"
 postcss = "postcss"
 pnpm = "pnpm"
-openai = "openai"
+devcontainer = "devcontainer"
+
+# Tech terms
+webp = "webp"
+webm = "webm"
+avif = "avif"
 
 [type.md]
 extend-ignore-re = [
@@ -44,5 +63,19 @@ extend-ignore-re = [
   "`[^`]*`",
   # Ignore code blocks
   "```[\\s\\S]*?```",
+]
+
+[type.ts]
+extend-ignore-re = [
+  # Ignore string literals
+  "\"[^\"]*\"",
+  "'[^']*'",
+]
+
+[type.tsx]
+extend-ignore-re = [
+  # Ignore string literals
+  "\"[^\"]*\"",
+  "'[^']*'",
 ]
 
