@@ -1,0 +1,48 @@
+# Typos spell checker configuration
+# https://github.com/crate-ci/typos
+
+[default]
+extend-ignore-re = [
+  # Ignore URLs
+  "https?://[^\\s]+",
+  # Ignore hex colors
+  "#[0-9a-fA-F]{3,8}",
+]
+
+[files]
+extend-exclude = [
+  "node_modules",
+  ".next",
+  "out",
+  "dist",
+  "build",
+  "*.lock",
+  "*.log",
+  "pnpm-lock.yaml",
+  "package-lock.json",
+]
+
+[default.extend-words]
+# Add custom words that should be ignored
+cadunass = "cadunass"
+Nass = "Nass"
+shadcn = "shadcn"
+Aceternity = "Aceternity"
+biomejs = "biomejs"
+lucide = "lucide"
+tabler = "tabler"
+radix = "radix"
+turbopack = "Turbopack"
+devcontainer = "devcontainer"
+postcss = "postcss"
+pnpm = "pnpm"
+openai = "openai"
+
+[type.md]
+extend-ignore-re = [
+  # Ignore inline code
+  "`[^`]*`",
+  # Ignore code blocks
+  "```[\\s\\S]*?```",
+]
+

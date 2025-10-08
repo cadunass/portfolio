@@ -1,5 +1,10 @@
 # cadunass - Portfolio Website
 
+[![CI](https://github.com/cadunass/portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/cadunass/portfolio/actions/workflows/ci.yml)
+[![Spellcheck](https://github.com/cadunass/portfolio/actions/workflows/spellcheck.yml/badge.svg)](https://github.com/cadunass/portfolio/actions/workflows/spellcheck.yml)
+[![Lighthouse CI](https://github.com/cadunass/portfolio/actions/workflows/lighthouse.yml/badge.svg)](https://github.com/cadunass/portfolio/actions/workflows/lighthouse.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 ![og image](public/og-image.png)
 
 A beautiful, responsive, and highly optimized portfolio website built with cutting-edge web technologies. This project showcases professional architecture, comprehensive SEO, type-safe code, and modern design patterns—all ready to deploy as a static site.
@@ -14,6 +19,7 @@ A beautiful, responsive, and highly optimized portfolio website built with cutti
   - [Local Installation](#option-2-local-installation)
 - [🛠️ Tech Stack](#️-tech-stack)
 - [📜 Available Scripts](#-available-scripts)
+- [🔄 CI/CD & Code Quality](#-cicd--code-quality)
 - [🌐 Deployment](#-deployment)
 - [🔧 Performance & Optimization](#-performance--optimization)
 - [📝 License](#-license)
@@ -304,6 +310,44 @@ pnpm add <pkg>    # Add new dependency
 ```
 
 **Note:** This project uses **static export** (`output: "export"`), so `pnpm start` is optional. The build output in `/out` can be served by any static hosting service.
+
+## 🔄 CI/CD & Code Quality
+
+This project uses automated workflows to ensure code quality and performance:
+
+### Pre-commit Hooks (Husky + lint-staged)
+- **Automatic linting and formatting** before every commit
+- Runs Biome check on staged files
+- Prevents committing code with linting errors
+- Configuration in `.lintstagedrc.js`
+
+### GitHub Actions Workflows
+
+#### 🏗️ CI (Continuous Integration)
+- **Triggers**: Push to `main` and Pull Requests
+- **Actions**:
+  - Runs Biome linter
+  - Checks code formatting
+  - Builds the static site
+  - Verifies build artifacts
+
+#### 🔤 Spellcheck
+- **Triggers**: Push to `main` and Pull Requests
+- **Tool**: [Typos](https://github.com/crate-ci/typos) - Fast spell checker
+- **Scope**: Source code, markdown files, documentation
+- **Configuration**: `.typos.toml`
+
+#### 💡 Lighthouse CI
+- **Triggers**: Push to `main` and Pull Requests
+- **Audits**:
+  - Performance (min score: 90%)
+  - Accessibility (min score: 95%)
+  - Best Practices (min score: 90%)
+  - SEO (min score: 95%)
+- **Configuration**: `.lighthouserc.json`
+- **Results**: Uploaded to temporary public storage
+
+All workflow statuses are visible via badges at the top of this README.
 
 ## 🌐 Deployment
 

@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-lint:
+    name: Build and Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 8
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run Biome lint
+        run: pnpm lint
+
+      - name: Run Biome format check
+        run: pnpm biome format --diagnostic-level=error
+
+      - name: Build project
+        run: pnpm build
+
+      - name: Check for build artifacts
+        run: |
+          if [ ! -d "out" ]; then
+            echo "Build output directory 'out' not found!"
+            exit 1
+          fi
+          echo "✓ Build successful - static files generated"
+
