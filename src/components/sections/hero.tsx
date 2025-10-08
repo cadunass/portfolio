@@ -25,7 +25,13 @@ export function Hero() {
       <div className="max-w-4xl mx-auto text-center px-4 relative">
         <h1 className="text-5xl md:text-7xl font-bold mb-6 relative">
           {/* <NameAnnotation /> */}
-          <TypewriterEffect words={nameWords} />
+          {/* Mobile: Static text (instant LCP), Desktop: TypewriterEffect */}
+          <span className="md:hidden text-neutral-800 dark:text-white">
+            {PERSONAL_INFO.fullName.join(" ")}
+          </span>
+          <span className="hidden md:block">
+            <TypewriterEffect words={nameWords} />
+          </span>
         </h1>
         <p className="text-2xl md:text-3xl text-neutral-600 dark:text-neutral-300 mb-8 opacity-0 animate-[fadeIn_0.5s_ease-in_0.5s_forwards]">
           {PERSONAL_INFO.title}

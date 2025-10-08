@@ -1,0 +1,16 @@
+# Modern browsers only (reduces legacy JavaScript polyfills)
+# This targets browsers with ES2020+ support
+
+# Modern Chrome, Edge, Safari, Firefox
+> 0.5%
+last 2 versions
+not dead
+not IE 11
+not op_mini all
+
+# Explicitly target modern ES features
+supports es6-module
+supports async-functions
+supports object-rest-spread
+
+

@@ -34,15 +34,24 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
   maxTwinkleSpeed = 1,
   className,
 }) => {
+  // Detect mobile for performance optimizations
+  const [isMobile, setIsMobile] = useState(false);
   const [stars, setStars] = useState<StarProps[]>([]);
   const canvasRef: RefObject<HTMLCanvasElement> = useRef<HTMLCanvasElement>(
     null as unknown as HTMLCanvasElement,
   );
 
+  // Detect mobile once on mount
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
+
   const generateStars = useCallback(
     (width: number, height: number): StarProps[] => {
       const area = width * height;
-      const numStars = Math.floor(area * starDensity);
+      // Reduce star density on mobile for better performance
+      const adjustedDensity = isMobile ? starDensity * 0.5 : starDensity;
+      const numStars = Math.floor(area * adjustedDensity);
       return Array.from({ length: numStars }, () => {
         const shouldTwinkle =
           allStarsTwinkle || Math.random() < twinkleProbability;
@@ -64,6 +73,7 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
       twinkleProbability,
       minTwinkleSpeed,
       maxTwinkleSpeed,
+      isMobile,
     ],
   );
 
@@ -107,12 +117,22 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext("2d", { alpha: true });
     if (!ctx) return;
 
     let animationFrameId: number;
+    let lastFrameTime = 0;
+    // Throttle to 30fps on mobile, 60fps on desktop
+    const frameInterval = isMobile ? 1000 / 30 : 1000 / 60;
 
-    const render = () => {
+    const render = (currentTime: number) => {
+      // Throttle frame rate
+      if (currentTime - lastFrameTime < frameInterval) {
+        animationFrameId = requestAnimationFrame(render);
+        return;
+      }
+      lastFrameTime = currentTime;
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       stars.forEach((star) => {
         ctx.beginPath();
@@ -123,24 +143,29 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
         if (star.twinkleSpeed !== null) {
           star.opacity =
             0.5 +
-            Math.abs(Math.sin((Date.now() * 0.001) / star.twinkleSpeed) * 0.5);
+            Math.abs(Math.sin((currentTime * 0.001) / star.twinkleSpeed) * 0.5);
         }
       });
 
       animationFrameId = requestAnimationFrame(render);
     };
 
-    render();
+    // Delay initial render slightly to not block Hero render
+    const timeoutId = setTimeout(() => {
+      animationFrameId = requestAnimationFrame(render);
+    }, 100);
 
     return () => {
+      clearTimeout(timeoutId);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [stars]);
+  }, [stars, isMobile]);
 
   return (
     <canvas
       ref={canvasRef}
       className={cn("h-full w-full absolute inset-0", className)}
+      style={{ willChange: "contents" }}
     />
   );
 };

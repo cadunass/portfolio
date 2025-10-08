@@ -13,12 +13,16 @@ const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
   display: "swap",
+  preload: true,
+  adjustFontFallback: true,
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
   display: "swap",
+  preload: false, // Not used above fold
+  adjustFontFallback: true,
 });
 
 const caveat = Caveat({
@@ -26,6 +30,8 @@ const caveat = Caveat({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
+  preload: false, // Not used above fold
+  adjustFontFallback: true,
 });
 
 export const viewport: Viewport = {
@@ -68,6 +74,14 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="cadunass" />
         <meta name="format-detection" content="telephone=no" />
         <link rel="canonical" href={siteConfig.url} />
+
+        {/* Preconnect to Google Fonts for faster font loading */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
 
         {/* 
           Structured Data (JSON-LD) for SEO
