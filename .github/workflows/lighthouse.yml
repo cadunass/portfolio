@@ -25,6 +25,9 @@ on:
       - '.github/workflows/lighthouse.yml'
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 # Cancel in-progress runs for same PR/branch
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
