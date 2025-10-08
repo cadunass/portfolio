@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/suspicious/noArrayIndexKey: we need to use the index as the key */
 "use client";
 
 import { motion, stagger, useAnimate, useInView } from "motion/react";
@@ -7,14 +8,12 @@ import { cn } from "@/lib/utils";
 export const TypewriterEffect = ({
   words,
   className,
-  cursorClassName,
 }: {
   words: {
     text: string;
     className?: string;
   }[];
   className?: string;
-  cursorClassName?: string;
 }) => {
   // split text inside of words into array of characters
   const wordsArray = words.map((word) => {
