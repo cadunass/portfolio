@@ -8,12 +8,14 @@ import { cn } from "@/lib/utils";
 export const TypewriterEffect = ({
   words,
   className,
+  onComplete,
 }: {
   words: {
     text: string;
     className?: string;
   }[];
   className?: string;
+  onComplete?: () => void;
 }) => {
   // split text inside of words into array of characters
   const wordsArray = words.map((word) => {
@@ -27,6 +29,13 @@ export const TypewriterEffect = ({
   const isInView = useInView(scope);
   useEffect(() => {
     if (isInView) {
+      // Calculate total animation duration
+      const totalChars = wordsArray.reduce(
+        (acc, word) => acc + word.text.length,
+        0,
+      );
+      const totalDuration = totalChars * 0.1 + 0.3; // stagger delay + last char duration
+
       animate(
         "span",
         {
@@ -40,8 +49,16 @@ export const TypewriterEffect = ({
           ease: "easeInOut",
         },
       );
+
+      // Trigger onComplete callback after animation finishes
+      if (onComplete) {
+        const timer = setTimeout(() => {
+          onComplete();
+        }, totalDuration * 1000);
+        return () => clearTimeout(timer);
+      }
     }
-  }, [isInView, animate]);
+  }, [isInView, animate, onComplete, wordsArray]);
 
   const renderWords = () => {
     return (

@@ -2,146 +2,133 @@
 
 import { motion } from "motion/react";
 
-export function NameAnnotation() {
-  return (
-    <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-full max-w-5xl pointer-events-none">
-      <svg
-        viewBox="0 0 1000 120"
-        className="w-full h-auto opacity-0 animate-[fadeIn_0.8s_ease-in_2s_forwards]"
-        style={{
-          filter: "drop-shadow(0 0 8px rgba(99, 102, 241, 0.2))",
-        }}
-        aria-label="Visual annotation showing how Carlos Eduardo Nass becomes cadunass"
-      >
-        <title>Name breakdown: Carlos Eduardo + Nass = cadunass</title>
+interface NameAnnotationProps {
+  triggerAnimation: boolean;
+  target: "carlosEduardo" | "nass";
+}
 
-        {/* Hand-drawn style filter */}
+export function NameAnnotation({
+  triggerAnimation,
+  target,
+}: NameAnnotationProps) {
+  // Hand-drawn curved bracket above the text (organic curly brace style)
+  // Inspired by SVG underline doodles - natural curves with slight imperfections
+  const selectionPaths = {
+    // Elegant curved bracket above "Carlos Eduardo" with natural hand-drawn wobbles
+    carlosEduardo:
+      "M 10 18 C 12 16 15 14 20 12 C 30 9 45 7 65 6 C 85 5.5 115 5.5 135 6 C 155 7 170 9 180 12 C 185 14 188 16 190 18",
+    // Elegant curved bracket above "Nass" with natural hand-drawn wobbles
+    nass: "M 10 18 C 15 15 25 11 45 8 C 70 6 130 6 155 8 C 175 11 185 15 190 18",
+  };
+
+  const labels = {
+    carlosEduardo: "CADU",
+    nass: "NASS",
+  };
+
+  const pathVariants = {
+    hidden: {
+      pathLength: 0,
+      opacity: 0,
+    },
+    visible: {
+      pathLength: 1,
+      opacity: 0.7,
+    },
+  };
+
+  const labelVariants = {
+    hidden: {
+      opacity: 0,
+      y: 5,
+      scale: 0.9,
+    },
+    visible: {
+      opacity: 0.95,
+      y: 0,
+      scale: 1,
+    },
+  };
+
+  const delays = {
+    carlosEduardo: 0.3,
+    nass: 1.1,
+  };
+
+  const labelDelays = {
+    carlosEduardo: 1.0,
+    nass: 1.8,
+  };
+
+  return (
+    <div className="absolute inset-0 w-full h-full pointer-events-none">
+      {/* Curved bracket SVG - positioned above the text */}
+      <svg
+        className="absolute left-0 right-0 w-full"
+        style={{
+          top: "-25px",
+          height: "25px",
+        }}
+        viewBox="0 0 200 20"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
         <defs>
-          <filter id="roughen">
-            <feTurbulence
-              type="fractalNoise"
-              baseFrequency="0.05"
-              numOctaves="2"
-              result="noise"
-            />
-            <feDisplacementMap
-              in="SourceGraphic"
-              in2="noise"
-              scale="1.5"
-              xChannelSelector="R"
-              yChannelSelector="G"
-            />
-          </filter>
+          <linearGradient
+            id={`gradient-${target}`}
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="0%"
+          >
+            <stop offset="0%" stopColor="#A78BFA" />
+            <stop offset="50%" stopColor="#818CF8" />
+            <stop offset="100%" stopColor="#6366F1" />
+          </linearGradient>
         </defs>
 
-        {/* "cadu" label (above left brace) */}
-        <motion.text
-          x="260"
-          y="25"
-          className="fill-indigo-500 dark:fill-indigo-400 text-2xl font-semibold"
-          style={{ fontFamily: "var(--font-caveat)" }}
-          textAnchor="middle"
-          initial={{ opacity: 0, y: 5 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 3.2 }}
-        >
-          cadu
-        </motion.text>
-
-        {/* Left horizontal overbrace (above "Carlos Eduardo") - WIDER */}
         <motion.path
-          d="M 80 55 L 80 50 Q 80 45 85 45 L 255 45 Q 260 45 260 40 Q 260 45 265 45 L 435 45 Q 440 45 440 50 L 440 55"
-          className="stroke-indigo-400 dark:stroke-indigo-400"
-          strokeWidth="2.5"
-          strokeLinecap="round"
+          d={selectionPaths[target]}
+          stroke={`url(#gradient-${target})`}
+          strokeWidth="2"
           fill="none"
-          filter="url(#roughen)"
-          initial={{ pathLength: 0, opacity: 0 }}
-          animate={{ pathLength: 1, opacity: 0.9 }}
-          transition={{ duration: 1, delay: 2.2, ease: "easeInOut" }}
-        />
-
-        {/* Plus sign */}
-        <motion.text
-          x="500"
-          y="75"
-          className="fill-indigo-500 dark:fill-indigo-400 text-3xl font-bold"
-          style={{ fontFamily: "var(--font-caveat)" }}
-          textAnchor="middle"
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.3, delay: 3.8 }}
-        >
-          +
-        </motion.text>
-
-        {/* "nass" label (above right brace) */}
-        <motion.text
-          x="635"
-          y="25"
-          className="fill-indigo-500 dark:fill-indigo-400 text-2xl font-semibold"
-          style={{ fontFamily: "var(--font-caveat)" }}
-          textAnchor="middle"
-          initial={{ opacity: 0, y: 5 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 3.4 }}
-        >
-          nass
-        </motion.text>
-
-        {/* Right horizontal overbrace (above "Nass") */}
-        <motion.path
-          d="M 570 55 L 570 50 Q 570 45 575 45 L 630 45 Q 635 45 635 40 Q 635 45 640 45 L 695 45 Q 700 45 700 50 L 700 55"
-          className="stroke-indigo-400 dark:stroke-indigo-400"
-          strokeWidth="2.5"
           strokeLinecap="round"
-          fill="none"
-          filter="url(#roughen)"
-          initial={{ pathLength: 0, opacity: 0 }}
-          animate={{ pathLength: 1, opacity: 0.9 }}
-          transition={{ duration: 0.8, delay: 2.6, ease: "easeInOut" }}
+          strokeLinejoin="round"
+          variants={pathVariants}
+          initial="hidden"
+          animate={triggerAnimation ? "visible" : "hidden"}
+          transition={{
+            duration: 1,
+            delay: delays[target],
+            ease: [0.22, 1, 0.36, 1], // Custom ease for smooth drawing
+          }}
         />
-
-        {/* Equals sign and result */}
-        <motion.g
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 4.2, ease: "backOut" }}
-        >
-          <text
-            x="760"
-            y="75"
-            className="fill-indigo-500 dark:fill-indigo-400 text-3xl font-bold"
-            style={{ fontFamily: "var(--font-caveat)" }}
-            textAnchor="middle"
-          >
-            =
-          </text>
-
-          <text
-            x="860"
-            y="78"
-            className="fill-indigo-600 dark:fill-indigo-300 text-3xl font-bold"
-            style={{ fontFamily: "var(--font-caveat)" }}
-            textAnchor="middle"
-          >
-            cadunass
-          </text>
-
-          {/* Underline for emphasis */}
-          <motion.path
-            d="M 805 82 Q 860 85 915 82"
-            className="stroke-indigo-600 dark:stroke-indigo-300"
-            strokeWidth="2.5"
-            fill="none"
-            strokeLinecap="round"
-            filter="url(#roughen)"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 0.6, delay: 4.5 }}
-          />
-        </motion.g>
       </svg>
+
+      {/* Label text that appears above the curved bracket */}
+      <motion.div
+        className="absolute left-1/2 -translate-x-1/2 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase"
+        style={{
+          top: "-42px",
+          background:
+            "linear-gradient(90deg, #A78BFA 0%, #818CF8 50%, #6366F1 100%)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          backgroundClip: "text",
+          textShadow: "0 0 20px rgba(129, 140, 248, 0.3)",
+        }}
+        variants={labelVariants}
+        initial="hidden"
+        animate={triggerAnimation ? "visible" : "hidden"}
+        transition={{
+          duration: 0.6,
+          delay: labelDelays[target],
+          ease: [0.16, 1, 0.3, 1], // Smooth ease out
+        }}
+      >
+        {labels[target]}
+      </motion.div>
     </div>
   );
 }

@@ -1,19 +1,25 @@
 "use client";
 
 import { IconArrowUpRight } from "@tabler/icons-react";
-import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 import { PERSONAL_INFO } from "@/constants";
 import { FlipWords } from "../ui/flip-words";
-// import { NameAnnotation } from "../ui/name-annotation";
 import { Spotlight } from "../ui/spotlight-new";
+import { AnnotatedTypewriter } from "../ui/annotated-typewriter";
+import { useState } from "react";
 
 export function Hero() {
+  const [showAnnotation, setShowAnnotation] = useState(false);
+
   const nameWords = PERSONAL_INFO.fullName.map((word) => ({
     text: word,
     className: "text-neutral-800 dark:text-white",
   }));
 
   const bioWords = ["secure", "scalable", "performant"];
+
+  const handleTypewriterComplete = () => {
+    setShowAnnotation(true);
+  };
 
   return (
     <section
@@ -24,13 +30,16 @@ export function Hero() {
       <Spotlight />
       <div className="max-w-4xl mx-auto text-center px-4 relative">
         <h1 className="text-5xl md:text-7xl font-bold mb-6 relative">
-          {/* <NameAnnotation /> */}
           {/* Mobile: Static text (instant LCP), Desktop: TypewriterEffect */}
           <span className="md:hidden text-neutral-800 dark:text-white">
             {PERSONAL_INFO.fullName.join(" ")}
           </span>
-          <span className="hidden md:block">
-            <TypewriterEffect words={nameWords} />
+          <span className="hidden md:block relative">
+            <AnnotatedTypewriter
+              words={nameWords}
+              onComplete={handleTypewriterComplete}
+              showAnnotations={showAnnotation}
+            />
           </span>
         </h1>
         <p className="text-2xl md:text-3xl text-neutral-600 dark:text-neutral-300 mb-8 opacity-0 animate-[fadeIn_0.5s_ease-in_0.5s_forwards]">
