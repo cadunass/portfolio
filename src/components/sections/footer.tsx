@@ -10,8 +10,15 @@ import {
 } from "motion/react";
 import { useRef, useState } from "react";
 import { siteConfig } from "@/config";
+import { getTranslations } from "@/lib/i18n";
+import type { Locale } from "@/types";
 
-export function Footer() {
+interface FooterProps {
+  lang: Locale;
+}
+
+export function Footer({ lang }: FooterProps) {
+  const t = getTranslations(lang);
   const [showTooltip, setShowTooltip] = useState(false);
   const springConfig = { stiffness: 100, damping: 15 };
   const x = useMotionValue(0);
@@ -55,7 +62,7 @@ export function Footer() {
           className="inline-flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors"
           onMouseMove={handleMouseMove}
         >
-          <span>© 2025 cadunass</span>
+          <span>{t.footer.copyright}</span>
         </a>
 
         <AnimatePresence>
@@ -82,7 +89,7 @@ export function Footer() {
             >
               <div className="relative rounded-lg bg-neutral-900 dark:bg-neutral-800 px-3 py-2 text-xs text-white shadow-xl border border-neutral-700 dark:border-neutral-600 flex items-center gap-2">
                 <div className="absolute inset-x-0 -bottom-px h-px w-3/4 mx-auto bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
-                View source code
+                {t.footer.viewSource}
                 {/* Triangle pointer */}
                 <div className="absolute left-1/2 -translate-x-1/2 -bottom-1 w-2 h-2 rotate-45 bg-neutral-900 dark:bg-neutral-800 border-r border-b border-neutral-700 dark:border-neutral-600" />
                 <IconBrandGithub size={16} />

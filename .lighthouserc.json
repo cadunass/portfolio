@@ -3,6 +3,7 @@
     "collect": {
       "staticDistDir": "./out",
       "numberOfRuns": 3,
+      "url": ["/en.html", "/pt.html"],
       "settings": {
         "preset": "desktop"
       }

@@ -1,0 +1,187 @@
+{
+  "common": {
+    "and": "e",
+    "present": "Atual",
+    "comingSoon": "Em Breve",
+    "updateDataIn": "Atualize os dados em"
+  },
+  "nav": {
+    "skipToContent": "Pular para o conteúdo principal",
+    "home": "Início",
+    "about": "Sobre",
+    "skills": "Habilidades",
+    "projects": "Projetos",
+    "experience": "Experiência",
+    "contact": "Contato"
+  },
+  "theme": {
+    "toggle": "Alternar tema",
+    "light": "Claro",
+    "dark": "Escuro",
+    "system": "Sistema"
+  },
+  "language": {
+    "toggle": "Mudar idioma",
+    "english": "Inglês",
+    "portuguese": "Português"
+  },
+  "hero": {
+    "title": "Engenheiro de Software",
+    "bioWords": ["seguras", "escaláveis", "performáticas"],
+    "openResume": "Abrir Currículo"
+  },
+  "about": {
+    "heading": "Sobre Mim",
+    "paragraph1": "Engenheiro de software preocupado com a segurança e orientado para o desempenho, com mais de 6 anos de experiência em desenvolvimento web full-stack, especializado em design, desenvolvimento e otimização de sistemas seguros e escaláveis em todo o ciclo de vida do desenvolvimento de software.",
+    "paragraph2": "Tenho a capacidade de arquitetar soluções robustas, gerenciar projetos desde o início até a produção, implementar práticas recomendadas abrangentes de segurança e liderar o desenvolvimento de aplicativos complexos. Minha experiência abrange desenvolvimento front-end e back-end (incluindo Rust, TypeScript, Next.js, React), desenvolvimento de API, princípios de segurança de software, gerenciamento de repositório e implementação de pipeline de CI/CD."
+  },
+  "skills": {
+    "heading": "Habilidades",
+    "technologies": "Tecnologias"
+  },
+  "projects": {
+    "heading": "Projetos em Destaque",
+    "featured": "Destaque",
+    "emptyState": "Projetos em breve! Volte mais tarde para ver meu trabalho.",
+    "emptyStateHint": "Atualize os dados dos projetos em",
+    "code": "Código",
+    "demo": "Demo"
+  },
+  "experience": {
+    "heading": "Profissional",
+    "work": "Experiência",
+    "emptyState": "Seção de experiência em breve!",
+    "emptyStateHint": "Atualize os dados da experiência em",
+    "present": "Atual"
+  },
+  "contact": {
+    "heading": "Entre em Contato",
+    "sendEmail": "Enviar E-mail",
+    "location": "Localização"
+  },
+  "footer": {
+    "copyright": "© 2025 cadunass",
+    "viewSource": "Ver código-fonte"
+  },
+  "social": {
+    "home": "Início",
+    "email": "E-mail",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
+  },
+  "seo": {
+    "title": "cadunass | Engenheiro de Software",
+    "description": "Carlos Eduardo Nass - Engenheiro de Software Sênior especializado em Rust, TypeScript, Web3 e IA. 6+ anos desenvolvendo aplicações seguras e escaláveis para clientes no mundo todo e em Joinville, SC. Entre em contato para consultorias e projetos colaborativos.",
+    "keywords": [
+      "cadunass",
+      "Carlos Eduardo Nass",
+      "Engenheiro de Software",
+      "Desenvolvedor Full Stack",
+      "Engenheiro de Software Sênior",
+      "desenvolvedor de software",
+      "engenheiro de software",
+      "engenheiro de software sênior",
+      "desenvolvedor full stack",
+      "desenvolvedor sênior",
+      "programador",
+      "programador sênior",
+      "desenvolvedor rust",
+      "desenvolvedor typescript",
+      "desenvolvedor react",
+      "desenvolvedor next.js",
+      "desenvolvedor web3",
+      "desenvolvedor blockchain",
+      "desenvolvedor node.js",
+      "desenvolvedor vue.js",
+      "desenvolvedor javascript",
+      "contratar desenvolvedor",
+      "contratar desenvolvedor rust",
+      "contratar desenvolvedor typescript",
+      "contratar desenvolvedor web3",
+      "contratar desenvolvedor blockchain",
+      "contratar programador",
+      "desenvolvedor freelance",
+      "freelance desenvolvedor rust",
+      "freelance desenvolvedor typescript",
+      "freelance desenvolvedor web3",
+      "desenvolvedor para contratar",
+      "freelancer programador",
+      "freelancer desenvolvedor",
+      "consultor de software",
+      "consultor desenvolvimento",
+      "desenvolvedor remoto",
+      "programador freelancer",
+      "consultor rust",
+      "consultor typescript",
+      "consultor blockchain",
+      "consultor web3",
+      "Rust",
+      "TypeScript",
+      "JavaScript",
+      "Next.js",
+      "React",
+      "Node.js",
+      "Vue.js",
+      "Java",
+      "Spring",
+      "Web3",
+      "Blockchain",
+      "Desenvolvimento IA",
+      "Carteira como Serviço",
+      "Criptografia",
+      "CI/CD",
+      "Smart Contracts",
+      "Desenvolvimento DApp",
+      "Desenvolvimento de API",
+      "Engenharia de Software",
+      "Desenvolvimento Web",
+      "Desenvolvimento Full Stack",
+      "desenvolvedor joinville",
+      "programador joinville",
+      "desenvolvedor santa catarina",
+      "desenvolvedor remoto brasil",
+      "Portfólio",
+      "Projetos",
+      "Código Aberto",
+      "Trabalho Remoto",
+      "Freelancer"
+    ],
+    "ogTitle": "cadunass | Engenheiro de Software",
+    "ogDescription": "Engenheiro de Software Sênior especializado em Rust, TypeScript, Web3 e IA. 6+ anos construindo aplicações seguras e escaláveis. Baseado em Joinville, SC, Brasil. Entre em contato para projetos freelance e consultoria.",
+    "ogImageAlt": "cadunass - Portfólio de Engenheiro de Software",
+    "twitterTitle": "cadunass | Engenheiro de Software",
+    "twitterDescription": "Engenheiro de Software Sênior | Especialista em Rust, TypeScript, Web3, IA | Freelance e consultoria | Entre em contato para seu próximo projeto"
+  },
+  "experienceData": {
+    "alore": {
+      "title": "Engenheiro de Software",
+      "summary": "Engenheiro principal responsável pela direção técnica em uma startup, criando soluções avançadas de Web3 e IA a partir do zero. Trabalhando remotamente com equipes internacionais distribuídas, liderei o desenvolvimento de uma API Wallet-as-a-Service criptograficamente segura em Rust, arquitetei sistemas completos de autenticação e contribui para uma ferramenta de IA generativa para escritórios de advocacia. Especializado na implementação de fluxos de trabalho CI/CD, entrega de aplicativos descentralizados e consultoria freelance para integrações de blockchain. Minha experiência inclui desenvolvimento de contratos inteligentes, design de API e aplicativos full-stack TypeScript/React."
+    },
+    "taric-full-stack": {
+      "title": "Desenvolvedor Full Stack",
+      "summary": "Trabalhei no desenvolvimento completo e na expansão de um sistema de registros médicos eletrônicos usando Java Spring e Vue.js. Como desenvolvedor experiente, implementei recursos complexos, conduzi revisões de código, contribui para a estrutura central da empresa e orientei desenvolvedores juniores. Especializado em desenvolvimento de API backend, otimização de banco de dados e aplicativos frontend responsivos para sistemas de saúde."
+    },
+    "taric-analyst": {
+      "title": "Analista de Programação",
+      "summary": "Desenvolvi lógica de back-end e interações de banco de dados para um sistema EMR em rápida expansão usando Java, Spring e SQL. Implementei recursos para uma plataforma de saúde usada por clínicas, contribuindo para o desenvolvimento de front-end com Vue.js."
+    },
+    "zitrus-analyst": {
+      "title": "Analista de Programação",
+      "summary": "Desenvolvimento inicial do front-end de um sistema de registros médicos eletrônicos usando Vue.js, criando componentes e recursos essenciais da interface do usuário. Expandiu proativamente para o desenvolvimento de back-end com Java, Spring e SQL, contribuindo em toda a pilha."
+    },
+    "zitrus-intern": {
+      "title": "Estagiário de Desenvolvimento Web",
+      "summary": "Adquiriu rapidamente proficiência em Vue.js e contribuiu significativamente para o front-end MVP de um sistema crítico de registros médicos eletrônicos. Demonstrou forte iniciativa ao aprender Java, Spring e SQL, o que o levou a um cargo de analista de programação em tempo integral."
+    },
+    "dalmark-intern": {
+      "title": "Estagiário de Desenvolvimento Web",
+      "summary": "Adquiri experiência profissional fundamental em desenvolvimento web com React, Node.js e Groovy. Desenvolvi um sistema de ponto com verificação baseada em geolocalização, contribuindo para o desenvolvimento tanto do front-end quanto do back-end."
+    }
+  },
+  "projectsData": {},
+  "personalInfo": {
+    "title": "Engenheiro de Software",
+    "bioStart": "Eu construo",
+    "bioEnd": "aplicações web"
+  }
+}

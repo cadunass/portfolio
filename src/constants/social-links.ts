@@ -7,7 +7,7 @@ import { PERSONAL_INFO } from "./personal-info";
 export const SOCIAL_LINKS = [
   {
     title: "Home",
-    href: "",
+    href: "/",
     iconName: "IconHome" as const,
   },
   {

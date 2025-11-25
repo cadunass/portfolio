@@ -1,77 +1,37 @@
-import dynamic from "next/dynamic";
-import { Hero } from "@/components/sections";
-import { SkipToContent } from "@/components/skip-to-content";
+"use client";
+
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import { RocketLoader } from "@/components/ui/loader";
+import { ShootingStars } from "@/components/ui/shooting-stars";
 import { StarsBackground } from "@/components/ui/stars-background";
+import { detectLocale } from "@/lib/detect-locale";
 
-// Lazy load below-fold sections to reduce initial bundle
-const About = dynamic(
-  () => import("@/components/sections").then((mod) => ({ default: mod.About })),
-  {
-    loading: () => <div className="min-h-screen" />,
-  },
-);
+/**
+ * Root page that detects user's language preference and redirects
+ * to the appropriate locale route (/en or /pt)
+ */
+export default function RootPage() {
+  const router = useRouter();
 
-const Skills = dynamic(
-  () =>
-    import("@/components/sections").then((mod) => ({ default: mod.Skills })),
-  {
-    loading: () => <div className="min-h-[40rem]" />,
-  },
-);
+  useEffect(() => {
+    const locale = detectLocale();
+    // Add a small delay to show the loading animation
+    const timeoutId = setTimeout(() => {
+      router.replace(`/${locale}`);
+    }, 2500); // 2.5 seconds delay
 
-const Experience = dynamic(
-  () =>
-    import("@/components/sections").then((mod) => ({
-      default: mod.Experience,
-    })),
-  {
-    loading: () => <div className="min-h-screen" />,
-  },
-);
+    return () => clearTimeout(timeoutId);
+  }, [router]);
 
-const SocialLinks = dynamic(
-  () =>
-    import("@/components/sections").then((mod) => ({
-      default: mod.SocialLinks,
-    })),
-  {
-    loading: () => null,
-  },
-);
-
-const Footer = dynamic(
-  () =>
-    import("@/components/sections").then((mod) => ({ default: mod.Footer })),
-  {
-    loading: () => null,
-  },
-);
-
-export default function Home() {
+  // Show minimal loading state during redirect
   return (
-    <div className="min-h-screen relative">
-      {/* Skip to Content Link for Accessibility */}
-      <SkipToContent />
-
-      {/* Background Effects - Scrolls with content */}
-      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
-        {/* <ShootingStars /> */}
-        <StarsBackground />
+    <div className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-foreground">
+      <ShootingStars minDelay={300} maxDelay={1000} />
+      <StarsBackground />
+      <div className="relative z-10 flex flex-col items-center justify-center px-4 text-center">
+        <RocketLoader />
       </div>
-
-      {/* Main Content */}
-      <main id="main-content" className="relative z-10 w-full">
-        <Hero />
-        <About />
-        <Skills />
-        {/* <Projects /> */}
-        <Experience />
-        {/* <Contact /> */}
-      </main>
-
-      {/* Floating Social Links - Fixed Position */}
-      <SocialLinks />
-      <Footer />
     </div>
   );
 }

@@ -5,13 +5,20 @@ import { Timeline } from "@/components/ui/timeline";
 import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 import { EXPERIENCE } from "@/constants";
 import { useInView } from "@/hooks/use-in-view";
+import { getTranslations } from "@/lib/i18n";
+import type { Locale } from "@/types";
 
-export function Experience() {
+interface ExperienceProps {
+  lang: Locale;
+}
+
+export function Experience({ lang }: ExperienceProps) {
   const { ref, isInView } = useInView();
+  const t = getTranslations(lang);
 
   const words = [
-    { text: "Work", className: "text-black dark:text-white" },
-    { text: "Experience", className: "text-black dark:text-white" },
+    { text: t.experience.work, className: "text-black dark:text-white" },
+    { text: t.experience.heading, className: "text-black dark:text-white" },
   ];
 
   const titleComponent = (
@@ -25,12 +32,12 @@ export function Experience() {
       <section id="experience" className="py-20 px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-neutral-800 dark:text-white mb-12 text-center">
-            Work Experience
+            {t.experience.heading}
           </h2>
           <div className="text-center text-neutral-600 dark:text-neutral-400">
-            <p>Experience section coming soon!</p>
+            <p>{t.experience.emptyState}</p>
             <p className="mt-2 text-sm">
-              Update the experience data in{" "}
+              {t.experience.emptyStateHint}{" "}
               <code className="px-2 py-1 bg-neutral-200 dark:bg-neutral-800 rounded">
                 src/constants/experience.ts
               </code>
@@ -48,9 +55,14 @@ export function Experience() {
     const endYear =
       exp.endDate && exp.endDate !== "Present"
         ? exp.endDate.split("-")[0]
-        : "Present";
+        : t.experience.present;
 
     const dateRange = year === endYear ? year : `${year} - ${endYear}`;
+
+    // Get translated title and summary if available
+    const translatedData = t.experienceData[exp.id];
+    const title = translatedData?.title || exp.title;
+    const summary = translatedData?.summary || exp.summary;
 
     return {
       title: dateRange,
@@ -58,7 +70,7 @@ export function Experience() {
         <div className="group rounded-lg p-4 -m-4 transition-all duration-300 hover:bg-neutral-50/50 dark:hover:bg-neutral-800/30">
           <div className="mb-4">
             <h3 className="text-lg md:text-2xl font-bold text-neutral-800 dark:text-white mb-2">
-              {exp.title}
+              {title}
             </h3>
             <div className="flex flex-col md:flex-row md:items-center gap-2 mb-4">
               <h4 className="text-base md:text-lg font-semibold text-neutral-700 dark:text-neutral-300">
@@ -73,7 +85,7 @@ export function Experience() {
           </div>
 
           <p className="mb-6 text-sm md:text-base leading-relaxed text-neutral-700 dark:text-neutral-300">
-            {exp.summary}
+            {summary}
           </p>
 
           {exp.links && exp.links.length > 0 && (
@@ -117,11 +129,7 @@ export function Experience() {
       ref={ref}
       aria-labelledby="experience-heading"
     >
-      <Timeline
-        data={timelineData}
-        titleComponent={titleComponent}
-        // description="My professional journey and contributions to various organizations."
-      />
+      <Timeline data={timelineData} titleComponent={titleComponent} />
     </section>
   );
 }

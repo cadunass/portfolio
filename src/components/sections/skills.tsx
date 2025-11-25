@@ -4,14 +4,24 @@ import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 import { SKILLS_FOR_DISPLAY } from "@/constants";
 import { useInView } from "@/hooks/use-in-view";
+import { getTranslations } from "@/lib/i18n";
+import type { Locale } from "@/types";
 
-export function Skills() {
+interface SkillsProps {
+  lang: Locale;
+}
+
+export function Skills({ lang }: SkillsProps) {
   const { ref, isInView } = useInView();
+  const t = getTranslations(lang);
 
   const words = [
-    { text: "Skills", className: "text-neutral-800 dark:text-white" },
-    { text: "&", className: "text-neutral-800 dark:text-white" },
-    { text: "Technologies", className: "text-neutral-800 dark:text-white" },
+    { text: t.skills.heading, className: "text-neutral-800 dark:text-white" },
+    { text: t.common.and, className: "text-neutral-800 dark:text-white" },
+    {
+      text: t.skills.technologies,
+      className: "text-neutral-800 dark:text-white",
+    },
   ];
 
   return (

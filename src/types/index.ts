@@ -1,5 +1,9 @@
 // Core type definitions for the portfolio application
 
+// Re-export i18n types
+export type { Locale, TranslationKey, Translations } from "./i18n";
+export { defaultLocale, locales } from "./i18n";
+
 export interface Skill {
   name: string;
   category?: string;
@@ -38,13 +42,6 @@ export interface Experience {
 export interface PersonalInfo {
   username: string;
   fullName: string[];
-  title: string;
-  subtitle?: string;
-  subtitlePt?: string; // Portuguese version for future i18n
-  bioStart: string;
-  bioStartPt?: string; // For future i18n
-  bioEnd: string;
-  bioEndPt?: string; // For future i18n
   email?: string;
   location?: string;
   locationShort?: string;

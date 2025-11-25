@@ -1,0 +1,169 @@
+{
+  "common": {
+    "and": "&",
+    "present": "Present",
+    "comingSoon": "Coming Soon",
+    "updateDataIn": "Update the data in"
+  },
+  "nav": {
+    "skipToContent": "Skip to main content",
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "experience": "Experience",
+    "contact": "Contact"
+  },
+  "theme": {
+    "toggle": "Toggle theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "language": {
+    "toggle": "Change language",
+    "english": "English",
+    "portuguese": "Portuguese"
+  },
+  "hero": {
+    "title": "Software Engineer",
+    "bioWords": ["secure", "scalable", "performant"],
+    "openResume": "Open Resume"
+  },
+  "about": {
+    "heading": "About Me",
+    "paragraph1": "Security-conscious and performance-driven Software Engineer with over 6 years of experience in full-stack web development, specializing in the design, development, and optimization of secure, scalable systems across the entire software development lifecycle.",
+    "paragraph2": "I have the ability to architect robust solutions, manage projects from start to production, implement comprehensive security best practices, and lead the development of complex applications. My expertise spans frontend and backend development (including Rust, TypeScript, Next.js, React), API development, software security principles, repository management, and CI/CD pipeline implementation."
+  },
+  "skills": {
+    "heading": "Skills",
+    "technologies": "Technologies"
+  },
+  "projects": {
+    "heading": "Featured Projects",
+    "featured": "Featured",
+    "emptyState": "Projects coming soon! Check back later to see my work.",
+    "emptyStateHint": "Update the projects data in",
+    "code": "Code",
+    "demo": "Demo"
+  },
+  "experience": {
+    "heading": "Experience",
+    "work": "Work",
+    "emptyState": "Experience section coming soon!",
+    "emptyStateHint": "Update the experience data in",
+    "present": "Present"
+  },
+  "contact": {
+    "heading": "Get In Touch",
+    "sendEmail": "Send Email",
+    "location": "Location"
+  },
+  "footer": {
+    "copyright": "© 2025 cadunass",
+    "viewSource": "View source code"
+  },
+  "social": {
+    "home": "Home",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
+  },
+  "seo": {
+    "title": "cadunass | Software Engineer",
+    "description": "Carlos Eduardo Nass - Senior Software Engineer specializing in Rust, TypeScript, Web3, and AI development. 6+ years building secure, scalable applications for clients worldwide and in Joinville, SC. Contact me for consulting engagements and collaborative projects.",
+    "keywords": [
+      "cadunass",
+      "Carlos Eduardo Nass",
+      "Software Engineer",
+      "Full Stack Developer",
+      "Senior Software Engineer",
+      "hire rust developer",
+      "hire typescript developer",
+      "hire software engineer",
+      "rust developer for hire",
+      "typescript developer for hire",
+      "web3 developer for hire",
+      "blockchain developer for hire",
+      "freelance software engineer",
+      "freelance rust developer",
+      "freelance typescript developer",
+      "freelance web3 developer",
+      "contract software engineer",
+      "software engineering consultant",
+      "Rust Developer",
+      "TypeScript Developer",
+      "React Developer",
+      "Next.js Developer",
+      "Web3 Developer",
+      "Blockchain Developer",
+      "Rust",
+      "TypeScript",
+      "JavaScript",
+      "Next.js",
+      "React",
+      "Node.js",
+      "Vue.js",
+      "Java",
+      "Spring",
+      "Web3",
+      "Blockchain",
+      "AI Development",
+      "Wallet-as-a-Service",
+      "Cryptography",
+      "CI/CD",
+      "Smart Contracts",
+      "DApp Development",
+      "API Development",
+      "Software Engineering",
+      "Web Development",
+      "Full Stack Development",
+      "software engineer brazil",
+      "developer santa catarina",
+      "software engineer joinville",
+      "remote software engineer brazil",
+      "Portfolio",
+      "Projects",
+      "Open Source",
+      "Remote Work",
+      "Freelancer"
+    ],
+    "ogTitle": "cadunass | Software Engineer",
+    "ogDescription": "Senior Software Engineer specializing in Rust, TypeScript, Web3, and AI. 6+ years building secure, scalable applications. Based in Joinville, SC, Brazil. Contact me for freelance projects and consulting.",
+    "ogImageAlt": "cadunass - Software Engineer Portfolio",
+    "twitterTitle": "cadunass | Software Engineer",
+    "twitterDescription": "Senior Software Engineer | Rust, TypeScript, Web3, AI specialist | Freelance & consulting | Get in touch for your next project"
+  },
+  "experienceData": {
+    "alore": {
+      "title": "Software Engineer",
+      "summary": "Core engineer driving technical direction at a startup, building advanced Web3 and AI solutions from the ground up. Working remotely with distributed international teams, I led development of a cryptographically secure Wallet-as-a-Service API in Rust, architected complete authentication systems, and contributed to a generative AI tool for law firms. Specialized in implementing CI/CD workflows, delivering decentralized applications, and providing freelance consulting for blockchain integrations. Experience includes smart contract development, API design, and full-stack TypeScript/React applications."
+    },
+    "taric-full-stack": {
+      "title": "Full Stack Developer",
+      "summary": "Worked on full stack development and expansion of an electronic medical record system using Java Spring and Vue.js. As a experienced developer, I implemented complex features, conducted code reviews, contributed to the company's core framework, and mentored junior developers. Specialized in backend API development, database optimization, and responsive frontend applications for healthcare systems."
+    },
+    "taric-analyst": {
+      "title": "Programming Analyst",
+      "summary": "Developed backend logic and database interactions for a rapidly expanding EMR system using Java, Spring, and SQL. Implemented features for a healthcare platform used by clinics while contributing to frontend development with Vue.js."
+    },
+    "zitrus-analyst": {
+      "title": "Programming Analyst",
+      "summary": "Initial frontend development of an electronic medical record system using Vue.js, building core UI components and features. Proactively expanded into backend development with Java, Spring, and SQL, contributing across the full stack."
+    },
+    "zitrus-intern": {
+      "title": "Web Development Intern",
+      "summary": "Rapidly acquired proficiency in Vue.js and contributed significantly to the MVP frontend of a critical electronic medical record system. Demonstrated strong initiative learning Java, Spring, and SQL, leading to a full-time Programming Analyst position."
+    },
+    "dalmark-intern": {
+      "title": "Web Development Intern",
+      "summary": "Gained foundational professional web development experience with React, Node.js, and Groovy. Developed a clock-in/clock-out system with geolocation-based verification, contributing to both frontend and backend development."
+    }
+  },
+  "projectsData": {},
+  "personalInfo": {
+    "title": "Software Engineer",
+    "bioStart": "I build",
+    "bioEnd": "web applications"
+  }
+}

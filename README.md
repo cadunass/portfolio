@@ -36,6 +36,7 @@ A beautiful, responsive, and highly optimized portfolio website built with cutti
 - **🏗️ Clean Architecture** - Modular, scalable, and maintainable codebase
 - **♿ Accessible** - WCAG compliant with semantic HTML and ARIA labels
 - **🔍 SEO Excellence** - Comprehensive metadata, structured data (JSON-LD), OpenGraph, and Twitter Cards
+- **🌐 i18n Support** - Multi-language support (English & Portuguese) with automatic locale detection
 - **🎭 Component Library** - Custom UI components + Aceternity UI + shadcn/ui integration
 - **🐳 DevContainer** - Complete development environment with Docker
 - **📊 Google Analytics Ready** - Structured data for enhanced search presence
@@ -53,7 +54,10 @@ portfolio/
 ├── src/
 │   ├── app/                   # Next.js 15 App Router
 │   │   ├── layout.tsx        # Root layout + SEO metadata
-│   │   ├── page.tsx          # Homepage
+│   │   ├── page.tsx          # Homepage (locale detection & redirect)
+│   │   ├── [lang]/           # i18n dynamic routes (/en, /pt)
+│   │   │   ├── layout.tsx    # Locale-specific layout & metadata
+│   │   │   └── page.tsx      # Localized homepage
 │   │   ├── globals.css       # Global styles with Tailwind
 │   │   ├── favicon.ico       # Favicons and PWA icons
 │   │   ├── icon.svg
@@ -85,6 +89,7 @@ portfolio/
 │   │   │
 │   │   ├── theme-provider.tsx  # Dark mode context
 │   │   ├── theme-toggle.tsx    # Theme switcher
+│   │   ├── language-switcher.tsx # Language switcher component
 │   │   └── skip-to-content.tsx # Accessibility helper
 │   │
 │   ├── constants/            # Static data (easy customization)
@@ -103,11 +108,18 @@ portfolio/
 │   ├── hooks/                # Custom React hooks
 │   │   └── use-in-view.ts    # Intersection observer hook
 │   │
+│   ├── locales/              # i18n translation files
+│   │   ├── en.json          # English translations
+│   │   └── pt.json          # Portuguese translations
+│   │
 │   ├── types/                # TypeScript definitions
-│   │   └── index.ts          # All type interfaces
+│   │   ├── index.ts          # All type interfaces
+│   │   └── i18n.ts          # i18n type definitions
 │   │
 │   └── lib/                  # Utility functions
-│       └── utils.ts          # Helper functions (cn, etc.)
+│       ├── utils.ts          # Helper functions (cn, etc.)
+│       ├── i18n.ts           # i18n utilities & translations
+│       └── detect-locale.ts  # Locale detection (browser/localStorage)
 │
 ├── public/                   # Static assets
 │   ├── resume.pdf           # Downloadable resume

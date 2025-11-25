@@ -2,8 +2,16 @@
 
 import { IconMail, IconMapPin } from "@tabler/icons-react";
 import { PERSONAL_INFO } from "@/constants";
+import { getTranslations } from "@/lib/i18n";
+import type { Locale } from "@/types";
 
-export function Contact() {
+interface ContactProps {
+  lang: Locale;
+}
+
+export function Contact({ lang }: ContactProps) {
+  const t = getTranslations(lang);
+
   return (
     <section
       id="contact"
@@ -11,7 +19,7 @@ export function Contact() {
     >
       <div className="max-w-4xl mx-auto">
         <h2 className="text-4xl font-bold text-neutral-800 dark:text-white mb-6 text-center">
-          Get In Touch
+          {t.contact.heading}
         </h2>
         <div className="text-center space-y-6">
           <div className="flex flex-col md:flex-row gap-6 justify-center items-center pt-4">
@@ -21,7 +29,7 @@ export function Contact() {
                 className="flex items-center gap-2 px-6 py-3 bg-neutral-800 dark:bg-white text-white dark:text-neutral-800 rounded-lg font-semibold hover:opacity-90 transition-opacity"
               >
                 <IconMail size={20} />
-                <span>Send Email</span>
+                <span>{t.contact.sendEmail}</span>
               </a>
             )}
 

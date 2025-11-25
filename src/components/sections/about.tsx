@@ -2,14 +2,22 @@
 
 import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 import { useInView } from "@/hooks/use-in-view";
+import { getTranslations } from "@/lib/i18n";
+import type { Locale } from "@/types";
 
-export function About() {
+interface AboutProps {
+  lang: Locale;
+}
+
+export function About({ lang }: AboutProps) {
   const { ref, isInView } = useInView();
+  const t = getTranslations(lang);
 
-  const words = [
-    { text: "About", className: "text-neutral-800 dark:text-white" },
-    { text: "Me", className: "text-neutral-800 dark:text-white" },
-  ];
+  const heading = t.about.heading;
+  const words = heading.split(" ").map((word) => ({
+    text: word,
+    className: "text-neutral-800 dark:text-white",
+  }));
 
   return (
     <section
@@ -27,43 +35,12 @@ export function About() {
           style={{ transitionDelay: "0.3s" }}
         >
           <div className="space-y-4">
-            {/* i18n-ready: about-paragraph-1 */}
             <p className="text-neutral-600 dark:text-neutral-300 leading-relaxed">
-              Security-conscious and performance-driven Software Engineer with
-              over 6 years of experience in full-stack web development,
-              specializing in the design, development, and optimization of
-              secure, scalable systems across the entire software development
-              lifecycle.
+              {t.about.paragraph1}
             </p>
-            {/* i18n-ready: about-paragraph-2 */}
             <p className="text-neutral-600 dark:text-neutral-300 leading-relaxed">
-              I have the ability to architect robust solutions, manage projects
-              from start to production, implement comprehensive security best
-              practices, and lead the development of complex applications. My
-              expertise spans frontend and backend development (including Rust,
-              TypeScript, Next.js, React), API development, software security
-              principles, repository management, and CI/CD pipeline
-              implementation.
+              {t.about.paragraph2}
             </p>
-            {/* <div className="pt-4">
-              {PERSONAL_INFO.location && (
-                <p className="text-neutral-600 dark:text-neutral-400">
-                  <span className="font-semibold">Location:</span>{" "}
-                  {PERSONAL_INFO.location}
-                </p>
-              )}
-              {PERSONAL_INFO.email && (
-                <p className="text-neutral-600 dark:text-neutral-400">
-                  <span className="font-semibold">Email:</span>{" "}
-                  <a
-                    href={`mailto:${PERSONAL_INFO.email}`}
-                    className="hover:text-neutral-800 dark:hover:text-white transition-colors"
-                  >
-                    {PERSONAL_INFO.email}
-                  </a>
-                </p>
-              )}
-            </div> */}
           </div>
           <div className="flex justify-center">
             <div className="w-64 h-64 rounded-full bg-gradient-to-br from-neutral-200 to-neutral-400 dark:from-neutral-700 dark:to-neutral-900 flex items-center justify-center">
