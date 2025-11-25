@@ -27,6 +27,7 @@ export function About() {
           style={{ transitionDelay: "0.3s" }}
         >
           <div className="space-y-4">
+            {/* i18n-ready: about-paragraph-1 */}
             <p className="text-neutral-600 dark:text-neutral-300 leading-relaxed">
               Security-conscious and performance-driven Software Engineer with
               over 6 years of experience in full-stack web development,
@@ -34,6 +35,7 @@ export function About() {
               secure, scalable systems across the entire software development
               lifecycle.
             </p>
+            {/* i18n-ready: about-paragraph-2 */}
             <p className="text-neutral-600 dark:text-neutral-300 leading-relaxed">
               I have the ability to architect robust solutions, manage projects
               from start to production, implement comprehensive security best

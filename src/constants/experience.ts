@@ -9,7 +9,7 @@ export const EXPERIENCE: Experience[] = [
     startDate: "2022-04",
     endDate: "Present",
     summary:
-      "Core engineer driving technical direction at a startup, building advanced Web3 and AI solutions from the ground up. Led development of a cryptographically secure Wallet-as-a-Service API in Rust, architected complete authentication systems, and contributed to a generative AI tool for law firms while implementing CI/CD workflows and delivering decentralized applications.",
+      "Core engineer driving technical direction at a startup, building advanced Web3 and AI solutions from the ground up. Working remotely with distributed international teams, I led development of a cryptographically secure Wallet-as-a-Service API in Rust, architected complete authentication systems, and contributed to a generative AI tool for law firms. Specialized in implementing CI/CD workflows, delivering decentralized applications, and providing freelance consulting for blockchain integrations. Experience includes smart contract development, API design, and full-stack TypeScript/React applications.",
     technologies: [
       "Rust",
       "TypeScript",
@@ -35,7 +35,7 @@ export const EXPERIENCE: Experience[] = [
     startDate: "2021-09",
     endDate: "2022-04",
     summary:
-      "Led full stack development and expansion of an electronic medical record system using Java and Vue.js. Implemented features, conducted code reviews, contributed to the company's core framework, and mentored junior developers.",
+      "Led full stack development and expansion of an electronic medical record system using Java Spring and Vue.js. As a experienced developer, I implemented complex features, conducted code reviews, contributed to the company's core framework, and mentored junior developers. Specialized in backend API development, database optimization, and responsive frontend applications for healthcare systems.",
     technologies: ["Java", "Vue.js", "Spring", "SQL"],
   },
   {

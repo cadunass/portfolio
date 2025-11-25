@@ -39,9 +39,16 @@ export interface PersonalInfo {
   username: string;
   fullName: string[];
   title: string;
+  subtitle?: string;
+  subtitlePt?: string; // Portuguese version for future i18n
   bioStart: string;
+  bioStartPt?: string; // For future i18n
   bioEnd: string;
+  bioEndPt?: string; // For future i18n
   email?: string;
   location?: string;
+  locationShort?: string;
+  timezone?: string;
   avatar?: string;
+  openToWork?: boolean;
 }

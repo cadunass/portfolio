@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { siteConfig } from "@/config";
 import {
   personStructuredData,
+  professionalServiceStructuredData,
   seoConfig,
   websiteStructuredData,
 } from "@/config/seo";
@@ -51,14 +52,24 @@ export const metadata: Metadata = {
   keywords: seoConfig.keywords,
   authors: seoConfig.authors,
   creator: seoConfig.creator,
-  openGraph: seoConfig.openGraph,
+  openGraph: {
+    ...seoConfig.openGraph,
+    type: "profile",
+  },
   twitter: seoConfig.twitter,
   robots: seoConfig.robots,
   verification: seoConfig.verification,
   alternates: {
     canonical: "/",
+    languages: {
+      en: "/",
+      "pt-BR": "/pt",
+    },
   },
   category: "technology",
+  other: {
+    "og:locale:alternate": "pt_BR",
+  },
 };
 
 export default function RootLayout({
@@ -73,7 +84,18 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="cadunass" />
         <meta name="format-detection" content="telephone=no" />
+
+        {/* Canonical and hreflang tags for i18n preparation */}
         <link rel="canonical" href={siteConfig.url} />
+        <link rel="alternate" hrefLang="en" href={siteConfig.url} />
+        <link rel="alternate" hrefLang="pt-BR" href={`${siteConfig.url}/pt`} />
+        <link rel="alternate" hrefLang="x-default" href={siteConfig.url} />
+
+        {/* Geo tags for regional SEO */}
+        <meta name="geo.region" content="BR-SC" />
+        <meta name="geo.placename" content="Joinville" />
+        <meta name="geo.position" content="-26.3045;-48.8487" />
+        <meta name="ICBM" content="-26.3045, -48.8487" />
 
         {/* Preconnect to Google Fonts for faster font loading */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -100,6 +122,13 @@ export default function RootLayout({
           // biome-ignore lint/security/noDangerouslySetInnerHtml: safe
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(websiteStructuredData),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: safe
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(professionalServiceStructuredData),
           }}
         />
       </head>

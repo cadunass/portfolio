@@ -7,5 +7,8 @@ export const PERSONAL_INFO: PersonalInfo = {
   bioStart: "I build",
   bioEnd: "web applications",
   email: "cadunass0@gmail.com",
-  location: "Santa Catarina, Brazil",
+  location: "Joinville, Santa Catarina, Brazil",
+  locationShort: "Joinville, SC",
+  timezone: "UTC-3",
+  openToWork: true,
 };
