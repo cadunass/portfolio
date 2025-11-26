@@ -4,8 +4,6 @@ Disallow: /api/
 Disallow: /admin/
 
 Sitemap: https://cadunass.com/sitemap.xml
-# Future i18n sitemaps:
-# Sitemap: https://cadunass.com/sitemap-pt.xml
 
 Host: https://cadunass.com
 
