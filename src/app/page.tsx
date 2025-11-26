@@ -1,37 +1,59 @@
-"use client";
+import type { Metadata } from "next";
+import { siteConfig } from "@/config";
+import { getSeoConfig } from "@/config/seo";
+import { PERSONAL_INFO } from "@/constants/personal-info";
+import { defaultLocale } from "@/types";
+import { RootPageClient } from "./page-client";
 
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
-import { RocketLoader } from "@/components/ui/loader";
-import { ShootingStars } from "@/components/ui/shooting-stars";
-import { StarsBackground } from "@/components/ui/stars-background";
-import { detectLocale } from "@/lib/detect-locale";
+/**
+ * Root Page Metadata
+ *
+ * This metadata applies ONLY to the root URL (https://cadunass.com).
+ * Locale-specific routes (/en, /pt) use generateMetadata from [lang]/layout.tsx
+ * which takes precedence and prevents conflicts.
+ *
+ * This ensures social media previews work when sharing the root URL.
+ */
+export const metadata: Metadata = (() => {
+  const seoConfig = getSeoConfig(defaultLocale);
+
+  return {
+    metadataBase: new URL(siteConfig.url),
+    title: seoConfig.title,
+    description: seoConfig.description,
+    keywords: seoConfig.keywords,
+    authors: seoConfig.authors,
+    creator: seoConfig.creator,
+    publisher: seoConfig.publisher,
+    openGraph: {
+      ...seoConfig.openGraph,
+      url: siteConfig.url,
+    },
+    twitter: seoConfig.twitter,
+    robots: seoConfig.robots,
+    alternates: {
+      canonical: siteConfig.url,
+      languages: {
+        en: `${siteConfig.url}/en`,
+        "pt-BR": `${siteConfig.url}/pt`,
+        "x-default": `${siteConfig.url}/en`,
+      },
+    },
+  };
+})();
 
 /**
  * Root page that detects user's language preference and redirects
  * to the appropriate locale route (/en or /pt)
+ *
+ * This is a server component wrapper that provides metadata,
+ * while the actual redirect logic is in the client component.
  */
 export default function RootPage() {
-  const router = useRouter();
-
-  useEffect(() => {
-    const locale = detectLocale();
-    // Add a small delay to show the loading animation
-    const timeoutId = setTimeout(() => {
-      router.replace(`/${locale}`);
-    }, 2500); // 2.5 seconds delay
-
-    return () => clearTimeout(timeoutId);
-  }, [router]);
-
-  // Show minimal loading state during redirect
   return (
-    <div className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-foreground">
-      <ShootingStars minDelay={300} maxDelay={1000} />
-      <StarsBackground />
-      <div className="relative z-10 flex flex-col items-center justify-center px-4 text-center">
-        <RocketLoader />
-      </div>
-    </div>
+    <>
+      <meta name="author" content={PERSONAL_INFO.fullName.join(" ")} />
+      <RootPageClient />
+    </>
   );
 }

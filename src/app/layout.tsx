@@ -11,6 +11,12 @@ import "./globals.css";
  *
  * suppressHydrationWarning is needed because the script modifies
  * the html element attributes before React hydrates.
+ *
+ * NOTE: Metadata is handled by:
+ * - Root page (src/app/page.tsx) - for root URL metadata
+ * - [lang]/layout.tsx - for locale-specific routes (overrides parent)
+ *
+ * This prevents metadata conflicts between layouts.
  */
 export default function RootLayout({
   children,
