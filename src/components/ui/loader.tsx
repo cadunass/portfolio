@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 
 export const RocketLoader = () => {
   return (
+    // biome-ignore lint/a11y/noSvgWithoutTitle: Rocket Loader SVG
     <motion.svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -25,7 +26,6 @@ export const RocketLoader = () => {
         repeatType: "loop" as const,
       }}
     >
-      <title>Loading</title>
       <motion.path stroke="none" d="M0 0h24v24H0z" fill="none" />
       {/* Main rocket body */}
       <motion.path

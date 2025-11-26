@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 export function NameAnnotation() {
   return (
     <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-full max-w-5xl pointer-events-none">
+      {/** biome-ignore lint/a11y/noSvgWithoutTitle: Name Annotation SVG */}
       <svg
         viewBox="0 0 1000 120"
         className="w-full h-auto opacity-0 animate-[fadeIn_0.8s_ease-in_2s_forwards]"
@@ -13,8 +14,6 @@ export function NameAnnotation() {
         }}
         aria-label="Visual annotation showing how Carlos Eduardo Nass becomes cadunass"
       >
-        <title>Name breakdown: Carlos Eduardo + Nass = cadunass</title>
-
         {/* Hand-drawn style filter */}
         <defs>
           <filter id="roughen">

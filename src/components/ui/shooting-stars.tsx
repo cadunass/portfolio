@@ -116,12 +116,12 @@ export const ShootingStars: React.FC<ShootingStarsProps> = ({
   }, [star]);
 
   return (
+    // biome-ignore lint/a11y/noSvgWithoutTitle: Shooting Stars SVG
     <svg
       ref={svgRef}
       className={cn("w-full h-full absolute inset-0", className)}
       aria-label="Shooting Stars"
     >
-      <title>Shooting Stars</title>
       {star && (
         <rect
           key={star.id}
