@@ -9,6 +9,7 @@ import {
   getSeoConfig,
   getWebsiteStructuredData,
 } from "@/config/seo";
+import { PERSONAL_INFO } from "@/constants/personal-info";
 import { getHreflang, isValidLocale, localeMetadata } from "@/lib/i18n";
 import { type Locale, locales } from "@/types";
 
@@ -80,18 +81,17 @@ export async function generateMetadata({
     creator: seoConfig.creator,
     openGraph: {
       ...seoConfig.openGraph,
-      type: "profile",
       locale: localeMeta.ogLocale,
     },
     twitter: seoConfig.twitter,
     robots: seoConfig.robots,
     verification: seoConfig.verification,
     alternates: {
-      canonical: `/${lang}`,
+      canonical: `${siteConfig.url}/${lang}`,
       languages: {
-        en: "/en",
-        "pt-BR": "/pt",
-        "x-default": "/en",
+        en: `${siteConfig.url}/en`,
+        "pt-BR": `${siteConfig.url}/pt`,
+        "x-default": `${siteConfig.url}/en`,
       },
     },
     category: "technology",
@@ -140,6 +140,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
 
       {/* Canonical and hreflang tags for i18n */}
       <link rel="canonical" href={`${siteConfig.url}/${lang}`} />
+      <meta name="author" content={PERSONAL_INFO.fullName.join(" ")} />
       <link
         rel="alternate"
         hrefLang={getHreflang("en")}

@@ -23,11 +23,12 @@ export function getSeoConfig(locale: Locale) {
     keywords: t.seo.keywords,
     authors: [
       {
-        name: PERSONAL_INFO.username,
+        name: PERSONAL_INFO.fullName.join(" "),
         url: siteConfig.url,
       },
     ],
-    creator: PERSONAL_INFO.username,
+    creator: PERSONAL_INFO.fullName.join(" "),
+    publisher: PERSONAL_INFO.fullName.join(" "),
     openGraph: {
       type: "website" as const,
       locale: locale === "en" ? "en_US" : "pt_BR",
